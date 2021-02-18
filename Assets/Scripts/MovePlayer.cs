@@ -12,6 +12,9 @@ public class MovePlayer : MonoBehaviour
     public float m_movSpeed_y = 10;//移动系数
     public GameObject Cube;
 
+    private int BombCount = 4;
+    private int HP = 3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,11 +48,17 @@ public class MovePlayer : MonoBehaviour
             xm += m_movSpeed_x * Time.deltaTime;
         }
         m_transform.Translate(new Vector2(xm, ym), Space.Self);
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(BombNum.num);
-            if (BombNum.num == 0) {
-                return;
+            // Debug.Log(BombNum.num);
+            // if (BombNum.num == 0) {
+            //     return;
+            // }
+            if (BombCount > 0)
+            {
+                BombCount--;
+                UIController.Instance.RefreshInfo(HP, BombCount);
             }
             var cube = GameObject.Instantiate(Cube);
             // cube.transform.Translate(transform.position);
@@ -125,9 +134,20 @@ public class MovePlayer : MonoBehaviour
         // TODO: need quaternion ?
         // Instantiate(BombEffectPrefab, transform.position, Quaternion.identity);
         // generate based on range
-        bomb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * 2.0f;
         bomb.tag = "Explode";
+        bomb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * 2.0f;
         yield return new WaitForSeconds(2);
         Destroy(bomb);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") || other.CompareTag("Explode"))
+        {   
+            if(HP > 0) HP--;
+            UIController.Instance.RefreshInfo(HP, BombCount);
+        }
+    }
+
+
 }
