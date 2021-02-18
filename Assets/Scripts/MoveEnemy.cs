@@ -4,32 +4,55 @@ using UnityEngine;
 
 public class MoveEnemy : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public float speed = 1;
+    private Rigidbody2D rb;
     // Use this for initialization
-    void Start () 
+
+    private float accelerationTime = 2f;
+    private float maxSpeed = 0.05f;
+    private Vector2 movement;
+    private float timeLeft;
+
+
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D> ();
+        movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        rb = GetComponent<Rigidbody2D>();
     }
 
- 	  public float accelerationTime = 2f;
- 	  public float maxSpeed = 5f;
- 	  private Vector2 movement;
- 	  private float timeLeft;
-  
- 	  void Update()
- 	  {
-   		timeLeft -= Time.deltaTime;
-   		if(timeLeft <= 0)
-   		{
-    		movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-     		timeLeft += accelerationTime;
-   		}
- 	}
- 
- 	void FixedUpdate()
- 	{
-   	rb.AddForce(movement * maxSpeed);
- 	}
- 	
- }
+    void Update()
+    {
+
+        rb.MovePosition((Vector2)transform.position + movement * maxSpeed);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Explode"))
+        {
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Wall"))
+        {
+            GetNewDirections();
+        }
+    }
+
+    private void GetNewDirections()
+    {
+        print("1" + movement);
+        movement = new Vector2(GetNewXorY(movement.x), GetNewXorY(movement.y));
+        print("2" + movement);
+        rb.MovePosition((Vector2)transform.position + movement * maxSpeed);
+    }
+
+    private float GetNewXorY(float z)
+    {
+		z = z * Random.Range(-2f, -1f);
+		if (z > 1) z = z - 1;
+		if (z < -1) z = z + 1;
+		if (z < 0.1 && z > 0) z = 0.1f;
+		if (z > -0.1 && z < 0) z = -0.1f; 
+		return z;
+    }
+}
