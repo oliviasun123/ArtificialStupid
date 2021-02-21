@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -85,12 +86,13 @@ public class MovePlayer : MonoBehaviour
         if (coll.contacts[0].normal.y == -1)
         {
             upFlag = 0;
+            Debug.Log("UP!!");
         }
         if (coll.contacts[0].normal.y == 1)
         {
             downFlag = 0;
+            Debug.Log("DOWN!!");
         }
-        Debug.Log("rightFlag=" + rightFlag);
     }
 
     void OnCollisionExit2D(Collision2D coll)
@@ -146,6 +148,10 @@ public class MovePlayer : MonoBehaviour
         {   
             if(HP > 0) HP--;
             UIController.Instance.RefreshInfo(HP, BombCount);
+        }
+        if (other.CompareTag("Door"))
+        {
+            SceneManager.LoadScene("Level1");
         }
     }
 

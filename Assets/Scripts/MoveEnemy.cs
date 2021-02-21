@@ -40,9 +40,9 @@ public class MoveEnemy : MonoBehaviour
 
     private void GetNewDirections()
     {
-        print("1" + movement);
+        //print("1" + movement);
         movement = new Vector2(GetNewXorY(movement.x), GetNewXorY(movement.y));
-        print("2" + movement);
+        //print("2" + movement);
         rb.MovePosition((Vector2)transform.position + movement * maxSpeed);
     }
 
