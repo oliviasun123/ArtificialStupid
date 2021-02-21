@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
 {
-
+    public GameObject bombPrefab;
     private Transform m_camTransform;//摄像机Transform
     private Transform m_transform;//摄像机父物体Transform
     private int rightFlag = 1, leftFlag = 1, upFlag = 1, downFlag = 1;
     public float m_movSpeed_x = 10;//移动系数
     public float m_movSpeed_y = 10;//移动系数
-    public GameObject Cube;
 
     private int BombCount = 4;
     private int HP = 3;
@@ -61,12 +60,10 @@ public class MovePlayer : MonoBehaviour
                 BombCount--;
                 UIController.Instance.RefreshInfo(HP, BombCount);
             }
-            var cube = GameObject.Instantiate(Cube);
-            // cube.transform.Translate(transform.position);
-            // cube.transform.Translate(new Vector2(xm,ym),Space.Self);
-
-            cube.transform.position = transform.position;
-            InitBomb(0, 1, cube);
+            GameObject bomb = GameObject.Instantiate(bombPrefab);
+            bomb.transform.position = transform.position;
+            bomb.GetComponent<Bomb>().InitBomb(0, 1);
+            // InitBomb(0, 1, cube);
         }
     }
 
@@ -121,25 +118,6 @@ public class MovePlayer : MonoBehaviour
         {
             downFlag = 0;
         }
-    }
-
-    public void InitBomb(int range, float delayTime, GameObject bomb)
-    {
-        // this.explodeRange = range;
-        StartCoroutine("explode", bomb);
-    }
-
-    IEnumerator explode(GameObject bomb)
-    {
-
-        yield return new WaitForSeconds(2);
-        // TODO: need quaternion ?
-        // Instantiate(BombEffectPrefab, transform.position, Quaternion.identity);
-        // generate based on range
-        bomb.tag = "Explode";
-        bomb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * 2.0f;
-        yield return new WaitForSeconds(2);
-        Destroy(bomb);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+// TODO: unused file by now
 public class health : MonoBehaviour
 {
 	public int hp;
