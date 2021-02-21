@@ -33,7 +33,7 @@ public class MoveEnemy : MonoBehaviour
         List<bool> newDir = FindNewDirectionByRay();
         currentDir = GetCurrentDirection();
 
-        if (newDir[currentDir[0]] == false || newDir[currentDir[1]] == false)
+        if (currentDir[0] != -1 && (newDir[currentDir[0]] == false || newDir[currentDir[1]] == false))
         {
             GenerateMovement(newDir);
         }
@@ -78,9 +78,6 @@ public class MoveEnemy : MonoBehaviour
 
     private void NormalizeMovement()
     {
-        if (movement.x == 0) movement.x = 0.1f;
-        if (movement.y == 0) movement.y = 0.1f;
-
         if (movement.x < 0 && movement.x > -0.1f) movement.x = -0.1f;
         if (movement.y < 0 && movement.y > -0.1f) movement.y = -0.1f;
         if (movement.x > 0 && movement.x < 0.1f) movement.x = 0.1f;
@@ -96,6 +93,10 @@ public class MoveEnemy : MonoBehaviour
         else if (movement.x > 0 && movement.y > 0) return new List<int>() { 1, 2 };
         else if (movement.x < 0 && movement.y < 0) return new List<int>() { 0, 3 };
         else if (movement.x > 0 && movement.y < 0) return new List<int>() { 1, 3 };
+        else if (movement.x == 0 && movement.y < 0) return new List<int>() { -1, 3 };
+        else if (movement.x == 0 && movement.y < 0) return new List<int>() { -1, 2 };
+        else if (movement.x > 0 && movement.y == 0) return new List<int>() { -1, 1 };
+        else if (movement.x > 0 && movement.y == 0) return new List<int>() { -1, 0 };
 
         return new List<int>() { -1, -1 };
     }
