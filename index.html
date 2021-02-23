@@ -9,12 +9,10 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/buildForDemo.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/build.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
-    <h3 style="text-align: center; margin-bottom: 20px;">Use W, A, S, D to move; &nbsp&nbsp&nbsp Use Space to put a bomb.</h3>
-
     <div class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
