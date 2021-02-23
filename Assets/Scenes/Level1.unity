@@ -10716,9 +10716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7623b4b8ae614ec0a6c010f8be8a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 0}
   m_movSpeed_x: 10
   m_movSpeed_y: 10
-  Cube: {fileID: 0}
 --- !u!50 &1941701517
 Rigidbody2D:
   serializedVersion: 4
@@ -10778,9 +10778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7623b4b8ae614ec0a6c010f8be8a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 0}
   m_movSpeed_x: 10
   m_movSpeed_y: 10
-  Cube: {fileID: 0}
 --- !u!1 &1942211012
 GameObject:
   m_ObjectHideFlags: 0
@@ -11158,7 +11158,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13.905581
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
