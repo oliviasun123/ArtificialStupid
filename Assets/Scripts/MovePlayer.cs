@@ -59,10 +59,11 @@ public class MovePlayer : MonoBehaviour
             {
                 BombCount--;
                 UIController.Instance.RefreshInfo(HP, BombCount);
+                GameObject bomb = GameObject.Instantiate(bombPrefab);
+                bomb.transform.position = transform.position;
+                bomb.GetComponent<Bomb>().InitBomb(0, 1);
             }
-            GameObject bomb = GameObject.Instantiate(bombPrefab);
-            bomb.transform.position = transform.position;
-            bomb.GetComponent<Bomb>().InitBomb(0, 1);
+
             // InitBomb(0, 1, cube);
         }
     }
@@ -126,6 +127,7 @@ public class MovePlayer : MonoBehaviour
         {   
             if(HP > 0) HP--;
             UIController.Instance.RefreshInfo(HP, BombCount);
+            if(HP==0) Destroy(gameObject);
         }
         if (other.CompareTag("Door"))
         {
