@@ -95,9 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7623b4b8ae614ec0a6c010f8be8a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: {fileID: 0}
+  bombPrefab: {fileID: 6079173223580028238, guid: 70f057be769da5149a648af209527ace,
+    type: 3}
   m_movSpeed_x: 10
   m_movSpeed_y: 10
-  Cube: {fileID: 6079173223580028238, guid: 70f057be769da5149a648af209527ace, type: 3}
 --- !u!61 &750281039302779834
 BoxCollider2D:
   m_ObjectHideFlags: 0

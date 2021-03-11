@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
-{
+{   
     public GameObject bombPrefab;
     private Transform m_camTransform;//摄像机Transform
     private Transform m_transform;//摄像机父物体Transform
@@ -12,13 +12,17 @@ public class MovePlayer : MonoBehaviour
     public float m_movSpeed_x = 10;//移动系数
     public float m_movSpeed_y = 10;//移动系数
 
-    private int BombCount = 4;
-    private int HP = 3;
+    private int BombCount;
+    private int HP;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        int[] basics = UIController.Instance.GetBasicInfo();
+        HP = basics[0];
+        BombCount = basics[1];
+        
         m_camTransform = Camera.main.transform;
         m_transform = GetComponent<Transform>();
     }
@@ -124,10 +128,14 @@ public class MovePlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Explode"))
-        {   
-            if(HP > 0) HP--;
+        {
+            if (HP > 0) HP--;
             UIController.Instance.RefreshInfo(HP, BombCount);
-            if(HP==0) Destroy(gameObject);
+            if (HP == 0)
+            {
+                UIController.Instance.ShowGameOver();
+                Destroy(gameObject);
+            }
         }
         if (other.CompareTag("Door"))
         {
