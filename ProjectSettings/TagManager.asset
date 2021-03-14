@@ -8,7 +8,6 @@ TagManager:
   - Wall
   - Explode
   - Enemy
-  - Door
   - Money
   - Sword
   - Bow
@@ -17,6 +16,7 @@ TagManager:
   - Shield
   - Key
   - Untouch
+  - Door_level1
   layers:
   - Default
   - TransparentFX
@@ -51,6 +51,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 2431821923
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

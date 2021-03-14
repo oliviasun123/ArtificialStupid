@@ -2651,6 +2651,8 @@ MonoBehaviour:
     type: 3}
   m_movSpeed_x: 10
   m_movSpeed_y: 10
+  LifeText: {fileID: 1553790252}
+  BombText: {fileID: 981412797}
 --- !u!61 &1303265777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2869,7 +2871,7 @@ MonoBehaviour:
           m_CanDisable: 1
           m_PropertyType: 1
           m_ValueType: System.String
-          m_Value: firstlevel
+          m_Value: level1
           m_Target:
             m_Target: {fileID: 0}
             m_Path: 
@@ -3825,7 +3827,7 @@ GameObject:
   - component: {fileID: 1746090744}
   m_Layer: 0
   m_Name: door (1)
-  m_TagString: Door
+  m_TagString: Door_level1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

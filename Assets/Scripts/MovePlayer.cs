@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
+using UnityEngine.UI;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class MovePlayer : MonoBehaviour
     private int rightFlag = 1, leftFlag = 1, upFlag = 1, downFlag = 1;
     public float m_movSpeed_x = 10;//移动系数
     public float m_movSpeed_y = 10;//移动系数
+    public Text LifeText;
+    public Text BombText;
+    private Scene thisScene;
 
     private int BombCount;
     private int HP;
@@ -26,6 +31,7 @@ public class MovePlayer : MonoBehaviour
         int[] basics = UIController.Instance.GetBasicInfo();
         HP = basics[0];
         BombCount = basics[1];
+        thisScene = SceneManager.GetActiveScene();
 
         m_camTransform = Camera.main.transform;
         m_transform = GetComponent<Transform>();
@@ -181,8 +187,13 @@ public class MovePlayer : MonoBehaviour
             gameObject.tag = "Killer";
         }
 
-        if (other.CompareTag("Door"))
+        if (other.CompareTag("Door_level1"))
         {
+            Dictionary<string, object> customParams = new Dictionary<string, object>();
+            customParams.Add("bombs_remain", BombText.text);
+            customParams.Add("life_remain", LifeText.text);
+
+            AnalyticsEvent.LevelComplete(thisScene.name,thisScene.buildIndex,customParams);
             SceneManager.LoadScene("Level1");
         }
     }
