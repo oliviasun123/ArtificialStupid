@@ -8,7 +8,8 @@ public class UIController : MonoBehaviour
 {
     public static UIController Instance;
 
-    public Text txt_HP, txt_Bomb;
+    public Text txt_HP, txt_Bomb, txt_Sword, txt_Money;
+    public GameObject img_Key;
     public GameObject img_gameover;
     public GameObject img_level;
 
@@ -18,10 +19,22 @@ public class UIController : MonoBehaviour
         InitTryAgain();
     }
 
-    public void RefreshInfo(int HP, int bomb)
+    public void RefreshInfo(int HP, int bomb, int sword, int money)
     {
-        txt_HP.text = "HP : " + HP.ToString();
-        txt_Bomb.text = "Bomb : " + bomb.ToString();
+        txt_HP.text = "" + HP.ToString();
+        txt_Bomb.text = "" + bomb.ToString();
+        txt_Sword.text = "" + sword.ToString();
+        txt_Money.text = "" + money.ToString();
+    }
+
+    public void DisplayKey()
+    {   
+        img_Key.SetActive(true);
+    }
+
+    public bool KeyAvailable()
+    {
+        return img_Key.activeSelf;
     }
 
     public void ShowGameOver()

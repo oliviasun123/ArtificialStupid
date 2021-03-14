@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
-{   
+{
     public GameObject bombPrefab;
     private Transform m_camTransform;//摄像机Transform
     private Transform m_transform;//摄像机父物体Transform
@@ -14,6 +14,10 @@ public class MovePlayer : MonoBehaviour
 
     private int BombCount;
     private int HP;
+    private int SwordCount = 0;
+    private int MoneyCount = 0;
+    private float SafeTime = 2.0f;
+    private bool SafeFlag = false;
 
 
     // Start is called before the first frame update
@@ -22,7 +26,7 @@ public class MovePlayer : MonoBehaviour
         int[] basics = UIController.Instance.GetBasicInfo();
         HP = basics[0];
         BombCount = basics[1];
-        
+
         m_camTransform = Camera.main.transform;
         m_transform = GetComponent<Transform>();
     }
@@ -62,7 +66,7 @@ public class MovePlayer : MonoBehaviour
             if (BombCount > 0)
             {
                 BombCount--;
-                UIController.Instance.RefreshInfo(HP, BombCount);
+                UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
                 GameObject bomb = GameObject.Instantiate(bombPrefab);
                 bomb.transform.position = transform.position;
                 bomb.GetComponent<Bomb>().InitBomb(0, 1);
@@ -127,21 +131,105 @@ public class MovePlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Key"))
+        {
+            UIController.Instance.DisplayKey();
+        }
+
+        if (other.CompareTag("Money"))
+        {
+            MoneyCount++;
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+        }
+
         if (other.CompareTag("Enemy") || other.CompareTag("Explode"))
         {
-            if (HP > 0) HP--;
-            UIController.Instance.RefreshInfo(HP, BombCount);
+            // safe time
+            if (SwordCount == 0 && SafeFlag)
+            {
+                return;
+            }
+
+            if (HP > 0)
+            {
+                if (other.CompareTag("Enemy") && SwordCount > 0)
+                {
+                    SwordCount = SwordCount - 1;
+                    StartCoroutine(BackToPlayer());
+                }
+                else
+                {
+                    HP--;
+                    SafeFlag = true;
+                    StartCoroutine(GraceTime(SafeTime));
+                }
+            }
+
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+
             if (HP == 0)
             {
                 UIController.Instance.ShowGameOver();
                 Destroy(gameObject);
             }
         }
+
+        if (other.CompareTag("Sword"))
+        {
+            SwordCount++;
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+            gameObject.tag = "Killer";
+        }
+
         if (other.CompareTag("Door"))
         {
             SceneManager.LoadScene("Level1");
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Explode"))
+        {
+            // safe time
+            if (SafeFlag)
+            {
+                return;
+            }
+
+            if (HP > 0)
+            {
+                HP--;
+                SafeFlag = true;
+                StartCoroutine(GraceTime(SafeTime));
+            }
+
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+
+            if (HP == 0)
+            {
+                UIController.Instance.ShowGameOver();
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    IEnumerator GraceTime(float graceTime)
+    {
+        yield return new WaitForSeconds(graceTime);
+        SafeFlag = false;
+    }
+
+    IEnumerator BackToPlayer()
+    {
+        yield return new WaitForEndOfFrame();
+
+        if (SwordCount == 0)
+        {
+            gameObject.tag = "Player";
+        }
+    }
+
 
 
 }

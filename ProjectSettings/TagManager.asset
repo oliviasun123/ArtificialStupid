@@ -9,6 +9,14 @@ TagManager:
   - Explode
   - Enemy
   - Door
+  - Money
+  - Sword
+  - Bow
+  - Box
+  - Killer
+  - Shield
+  - Key
+  - Untouch
   layers:
   - Default
   - TransparentFX
@@ -20,7 +28,7 @@ TagManager:
   - 
   - Wall
   - Player
-  - 
+  - KeyEnemy
   - 
   - 
   - 

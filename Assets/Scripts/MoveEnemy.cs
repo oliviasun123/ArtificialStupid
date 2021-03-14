@@ -12,6 +12,7 @@ public class MoveEnemy : MonoBehaviour
     // 0: top-left, 1: top-right, 2: down-left, 3: down-right
     private List<int> currentDir;
     private float timeLeft;
+    private bool isDead = false;
 
 
 
@@ -101,11 +102,30 @@ public class MoveEnemy : MonoBehaviour
         return new List<int>() { -1, -1 };
     }
 
+    private void DestroyAndGetKey() 
+    {   
+        if (isDead) 
+        {   
+            return;
+        }
+        
+        isDead = true;
+        
+        if (gameObject.layer == 10)
+        {
+            GetKeyHelper.Instance.GenerateKey(transform.position);
+        }
+
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Explode"))
-        {
-            Destroy(gameObject);
+        print(other.tag);
+
+        if (other.CompareTag("Explode") || other.CompareTag("Killer"))
+        {   
+            DestroyAndGetKey();
         }
 
         // else if (other.CompareTag("Wall"))
@@ -118,7 +138,7 @@ public class MoveEnemy : MonoBehaviour
     {
         if (other.CompareTag("Explode"))
         {
-            Destroy(gameObject);
+            DestroyAndGetKey();
         }
     }
 
@@ -126,7 +146,7 @@ public class MoveEnemy : MonoBehaviour
     {
         if (other.CompareTag("Explode"))
         {
-            Destroy(gameObject);
+            DestroyAndGetKey();
         }
     }
 
