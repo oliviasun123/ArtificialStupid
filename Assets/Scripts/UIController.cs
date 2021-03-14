@@ -13,9 +13,12 @@ public class UIController : MonoBehaviour
     public GameObject img_gameover;
     public GameObject img_level;
 
+    public Button btn_tryagain;
+
     private void Awake()
     {
         Instance = this;
+        print("awkae");
         InitTryAgain();
     }
 
@@ -29,7 +32,7 @@ public class UIController : MonoBehaviour
     }
 
     public void DisplayKey()
-    {   
+    {
         img_Key.SetActive(true);
     }
 
@@ -44,15 +47,16 @@ public class UIController : MonoBehaviour
     }
 
     public void ShowGameOver()
-    {   
+    {
         img_level.SetActive(false);
         img_gameover.SetActive(true);
     }
 
-    private void InitTryAgain() 
+    private void InitTryAgain()
     {
-        img_gameover.transform.Find("Button").GetComponent<Button>().onClick.AddListener(() => {
-            SceneManager.LoadScene(1);
+        btn_tryagain.onClick.AddListener(() =>
+        {   
+            SceneManager.LoadScene("SampleScene");
         });
 
         // print(txt_HP.text[txt_HP.text.Length - 1]);
@@ -63,6 +67,6 @@ public class UIController : MonoBehaviour
     {
         int HP = int.Parse(txt_HP.text[txt_HP.text.Length - 1] + "");
         int BombCount = int.Parse(txt_Bomb.text[txt_Bomb.text.Length - 1] + "");
-        return new int[] {HP, BombCount};
+        return new int[] { HP, BombCount };
     }
 }
