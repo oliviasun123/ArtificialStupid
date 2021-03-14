@@ -5,8 +5,8 @@ using UnityEngine;
 public class MoveEnemy : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer sp;
     private float rayDistanceX, rayDistanceY;
-    private float accelerationTime = 2f;
     private float maxSpeed = 0.05f;
     private Vector2 movement;
     // 0: top-left, 1: top-right, 2: down-left, 3: down-right
@@ -15,10 +15,10 @@ public class MoveEnemy : MonoBehaviour
     private bool isDead = false;
 
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sp = GetComponent<SpriteRenderer>();
 
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         NormalizeMovement();
@@ -102,15 +102,16 @@ public class MoveEnemy : MonoBehaviour
         return new List<int>() { -1, -1 };
     }
 
-    private void DestroyAndGetKey() 
-    {   
-        if (isDead) 
-        {   
+    private void DestroyAndGetKey()
+    {
+        // fix multiple keys bug
+        if (isDead)
+        {
             return;
         }
-        
+
         isDead = true;
-        
+
         if (gameObject.layer == 10)
         {
             GetKeyHelper.Instance.GenerateKey(transform.position);
@@ -119,12 +120,30 @@ public class MoveEnemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public bool DestroyConditionTrigger(Collider2D other)
+    {
+        if (other.CompareTag("Killer"))
+        {
+            return true;
+        }
+
+        if (other.CompareTag("GreenBomb") && gameObject.tag == "GreenEnemy")
+        {
+            return true;
+        }
+
+        if (other.CompareTag("BlueBomb") && gameObject.tag == "BlueEnemy")
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.tag);
-
-        if (other.CompareTag("Explode") || other.CompareTag("Killer"))
-        {   
+        if (DestroyConditionTrigger(other))
+        {
             DestroyAndGetKey();
         }
 
@@ -136,7 +155,7 @@ public class MoveEnemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Explode"))
+        if (DestroyConditionTrigger(other))
         {
             DestroyAndGetKey();
         }
@@ -144,7 +163,7 @@ public class MoveEnemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Explode"))
+        if (DestroyConditionTrigger(other))
         {
             DestroyAndGetKey();
         }

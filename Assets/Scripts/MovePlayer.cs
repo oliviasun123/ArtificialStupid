@@ -21,8 +21,11 @@ public class MovePlayer : MonoBehaviour
     private int HP;
     private int SwordCount = 0;
     private int MoneyCount = 0;
+    private int GemCount = 0;
+    private float explodeRange = 2.0f;
     private float SafeTime = 2.0f;
     private bool SafeFlag = false;
+    private bool isGreen = false;
 
 
     // Start is called before the first frame update
@@ -72,10 +75,12 @@ public class MovePlayer : MonoBehaviour
             if (BombCount > 0)
             {
                 BombCount--;
-                UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+                UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
                 GameObject bomb = GameObject.Instantiate(bombPrefab);
+
                 bomb.transform.position = transform.position;
-                bomb.GetComponent<Bomb>().InitBomb(0, 1);
+                bomb.GetComponent<Bomb>().InitBomb(explodeRange, isGreen);
+                isGreen = isGreen == true ? false : true;
             }
 
             // InitBomb(0, 1, cube);
@@ -88,22 +93,22 @@ public class MovePlayer : MonoBehaviour
         if (coll.contacts[0].normal.x == -1)
         {
             rightFlag = 0;
-            Debug.Log("RIGHT!!");
+            // Debug.Log("RIGHT!!");
         }
         if (coll.contacts[0].normal.x == 1)
         {
             leftFlag = 0;
-            Debug.Log("LEFT!!");
+            // Debug.Log("LEFT!!");
         }
         if (coll.contacts[0].normal.y == -1)
         {
             upFlag = 0;
-            Debug.Log("UP!!");
+            // Debug.Log("UP!!");
         }
         if (coll.contacts[0].normal.y == 1)
         {
             downFlag = 0;
-            Debug.Log("DOWN!!");
+            // Debug.Log("DOWN!!");
         }
     }
 
@@ -135,20 +140,53 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
+    private bool isBomb(Collider2D other)
+    {
+        return other.CompareTag("BlueBomb") || other.CompareTag("GreenBomb");
+    }
+
+    private bool isEnemy(Collider2D other)
+    {
+        return other.CompareTag("Enemy") || other.CompareTag("BlueEnemy") || other.CompareTag("GreenEnemy");
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("HealthPotion"))
+        {
+            HP++;
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
+        }
+
+        if (other.CompareTag("BombPotion"))
+        {
+            BombCount++;
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
+        }
+
         if (other.CompareTag("Key"))
         {
             UIController.Instance.DisplayKey();
         }
 
+        if (other.CompareTag("Gem"))
+        {
+            GemCount++;
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
+        }
+
+        if (other.CompareTag("Bow"))
+        {
+            explodeRange = explodeRange * 2;
+        }
+
         if (other.CompareTag("Money"))
         {
             MoneyCount++;
-            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
         }
 
-        if (other.CompareTag("Enemy") || other.CompareTag("Explode"))
+        if (isEnemy(other) || isBomb(other))
         {
             // safe time
             if (SwordCount == 0 && SafeFlag)
@@ -158,7 +196,7 @@ public class MovePlayer : MonoBehaviour
 
             if (HP > 0)
             {
-                if (other.CompareTag("Enemy") && SwordCount > 0)
+                if (isEnemy(other) && SwordCount > 0)
                 {
                     SwordCount = SwordCount - 1;
                     StartCoroutine(BackToPlayer());
@@ -171,7 +209,7 @@ public class MovePlayer : MonoBehaviour
                 }
             }
 
-            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
 
             if (HP == 0)
             {
@@ -183,7 +221,7 @@ public class MovePlayer : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             SwordCount++;
-            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
             gameObject.tag = "Killer";
         }
 
@@ -193,14 +231,14 @@ public class MovePlayer : MonoBehaviour
             customParams.Add("bombs_remain", BombText.text);
             customParams.Add("life_remain", LifeText.text);
 
-            AnalyticsEvent.LevelComplete(thisScene.name,thisScene.buildIndex,customParams);
+            AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Level1");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Explode"))
+        if (isBomb(other))
         {
             // safe time
             if (SafeFlag)
@@ -215,7 +253,7 @@ public class MovePlayer : MonoBehaviour
                 StartCoroutine(GraceTime(SafeTime));
             }
 
-            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount);
+            UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
 
             if (HP == 0)
             {

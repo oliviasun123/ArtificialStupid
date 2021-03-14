@@ -17,6 +17,16 @@ TagManager:
   - Key
   - Untouch
   - Door_level1
+  - Gem
+  - Door
+  - BlueBomb
+  - GreenBomb
+  - BlueWall
+  - GreenWall
+  - GreenEnemy
+  - BlueEnemy
+  - HealthPotion
+  - BombPotion
   layers:
   - Default
   - TransparentFX

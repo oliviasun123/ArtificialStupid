@@ -23,20 +23,27 @@ public class GetKeyHelper : MonoBehaviour
         GameObject keyObj = GameObject.Instantiate(KeyPrefab);
         keyObj.tag = "Untouch";
         keyObj.transform.position = pos;
-        StartCoroutine(Touchable(keyObj));
+        StartCoroutine(TouchableKey(keyObj));
     }
 
     public void GenerateGem(Vector2 pos)
     {
         // sp.sprite = KeySprite;
         GameObject gemObj = GameObject.Instantiate(GemPrefab);
+        gemObj.tag = "Untouch";
         gemObj.transform.position = pos;
+        StartCoroutine(TouchableGem(gemObj));
     }
 
-    IEnumerator Touchable(GameObject keyObj)
+    IEnumerator TouchableKey(GameObject keyObj)
     {
         yield return new WaitForSeconds(1.0f);
         keyObj.tag = "Key";
+    }
+    IEnumerator TouchableGem(GameObject gemObj)
+    {
+        yield return new WaitForSeconds(1.0f);
+        gemObj.tag = "Gem";
     }
 
 }
