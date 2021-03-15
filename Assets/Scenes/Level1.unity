@@ -3032,6 +3032,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 15.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8633247950274332896, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cbbb0533a56141cf9ffe57d1154b67a, type: 3}
 --- !u!1 &419989674
@@ -3417,7 +3422,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d61b1406df63402e8096bacad0126dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df99accb42443094e9fe21f3c48e5f83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3480,7 +3485,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.5, y: 1.375}
+    oldSize: {x: 1, y: 0.91}
     newSize: {x: 3.5, y: 1.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4829,7 +4834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &779960687
 Animator:
   serializedVersion: 3
@@ -12498,7 +12503,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d61b1406df63402e8096bacad0126dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df99accb42443094e9fe21f3c48e5f83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12561,7 +12566,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.5, y: 1.375}
+    oldSize: {x: 1, y: 0.91}
     newSize: {x: 3.5, y: 1.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12781,7 +12786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2042504720
 MonoBehaviour:
   m_ObjectHideFlags: 0

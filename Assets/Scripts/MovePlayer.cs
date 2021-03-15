@@ -26,11 +26,14 @@ public class MovePlayer : MonoBehaviour
     private float SafeTime = 2.0f;
     private bool SafeFlag = false;
     private bool isGreen = false;
+    private bool hasKey = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.DontDestroyOnLoad(gameObject);
+
         int[] basics = UIController.Instance.GetBasicInfo();
         HP = basics[0];
         BombCount = basics[1];
@@ -43,6 +46,11 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SceneManager.LoadScene("Store");
+        }
+
         // 定义3个值控制移动
         float xm = 0, ym = 0;
 
@@ -167,6 +175,12 @@ public class MovePlayer : MonoBehaviour
         if (other.CompareTag("Key"))
         {
             UIController.Instance.DisplayKey();
+            hasKey = true;
+        }
+
+        if (hasKey && other.CompareTag("Box"))
+        {
+            hasKey = false;
         }
 
         if (other.CompareTag("Gem"))
@@ -177,7 +191,7 @@ public class MovePlayer : MonoBehaviour
 
         if (other.CompareTag("Bow"))
         {
-            explodeRange = explodeRange * 2;
+            explodeRange = explodeRange + 2.0f;
         }
 
         if (other.CompareTag("Money"))
@@ -231,9 +245,59 @@ public class MovePlayer : MonoBehaviour
             customParams.Add("bombs_remain", BombText.text);
             customParams.Add("life_remain", LifeText.text);
 
+            hasKey = UIController.Instance.KeyAvailable();
+
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
-            SceneManager.LoadScene("Level1");
+            // SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Store");
+
         }
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        // print(level);
+
+        if (level != 5)
+        {
+            GameData.Instance.SetupLevel(level);
+
+        }
+
+        if (level == 1)
+        {
+            return;
+        }
+
+        if (level == 5)
+        {
+            int[] list = new int[] { MoneyCount, (int)explodeRange / 2 - 1, SwordCount, HP, BombCount };
+            GameData.Instance.SetupStore(list);
+            return;
+        }
+
+        HP = GameData.Instance.HP;
+        MoneyCount = GameData.Instance.Money;
+        explodeRange = (GameData.Instance.BowCount + 1) * 2.0f;
+        SwordCount = GameData.Instance.SwordCount;
+        BombCount = GameData.Instance.BombCount;
+
+        HP += 1;
+        BombCount += 3;
+        UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
+
+        // print(level);
+        if (level == 2)
+        {
+            gameObject.transform.position = new Vector3(-4, 15, 0);
+        }
+
+        if (!hasKey)
+        {
+            UIController.Instance.HideKey();
+        }
+
+        UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
     }
 
     private void OnTriggerExit2D(Collider2D other)

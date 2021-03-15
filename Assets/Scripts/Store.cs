@@ -26,7 +26,7 @@ public class Store : MonoBehaviour
     {
         // TODO 此处需要从UIController处传入目前的金币数，弓的数量，剑的数量，紫色药水的数量和黄色药水的数量
         // 下面这个sample就是说上一关结束后，拥有999个金币，1个弓，11个剑，111个紫药水和1111个黄药水
-        int[] basics = {999, 1, 11, 111, 1111};
+        int[] basics = GameData.Instance.GetStoreList();
 
         txt_coins.text = basics[0].ToString();
         txt_final_1.text = basics[1].ToString();
@@ -48,6 +48,8 @@ public class Store : MonoBehaviour
             
             // TODO 这里的result数组，是{金币，弓，剑，紫药水，黄药水}传给下一个scene
             int[] result = new int[] {int.Parse(txt_coins.text), int.Parse(txt_final_1.text), int.Parse(txt_final_2.text), int.Parse(txt_final_3.text), int.Parse(txt_final_4.text)};
+            GameData.Instance.SetupStore(result);
+            SceneManager.LoadScene(GameData.Instance.GetLevel() + 1);
          });
 
         btn_goods_1_more.onClick.AddListener(() => {

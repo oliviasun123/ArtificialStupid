@@ -18,7 +18,6 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        print("awkae");
         InitTryAgain();
     }
 
