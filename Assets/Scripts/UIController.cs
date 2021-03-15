@@ -14,11 +14,13 @@ public class UIController : MonoBehaviour
     public GameObject img_level;
 
     public Button btn_tryagain;
+    public Button btn_exit, btn_retry;
 
     private void Awake()
     {
         Instance = this;
         InitTryAgain();
+        InitDialog();
     }
 
     public void RefreshInfo(int HP, int bomb, int sword, int money, int gem)
@@ -60,6 +62,20 @@ public class UIController : MonoBehaviour
 
         // print(txt_HP.text[txt_HP.text.Length - 1]);
         // print(txt_Bomb.text[txt_Bomb.text.Length - 1]);
+    }
+
+    private void InitDialog()
+    {
+        btn_retry.onClick.AddListener(() =>
+        {
+            Scene scene = SceneManager.GetActiveScene ();
+            SceneManager.LoadScene(scene.name);
+            // GUILayout.Label ("当前场景: " + scene.name);
+        });
+        btn_exit.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("Start");
+        });
     }
 
     public int[] GetBasicInfo()
