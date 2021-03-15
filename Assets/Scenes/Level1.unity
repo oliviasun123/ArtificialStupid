@@ -3088,11 +3088,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3827874013809517862, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827874013809517862, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[1].m_Value.m_Value
+      value: level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827874013809517862, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[2].m_Value.m_ValueType
+      value: System.String
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827874013809517862, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[2].m_Value.m_Target.m_Path
+      value: text
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827874013809517862, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[2].m_Value.m_Target.m_Type
+      value: System.String
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827874013809517862, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[2].m_Value.m_Target.m_Target
+      value: 
+      objectReference: {fileID: 1748553198}
     - target: {fileID: 4888605078828220281, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4985270361379078621, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: BombText
+      value: 
+      objectReference: {fileID: 1748553198}
+    - target: {fileID: 4985270361379078621, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: LifeText
+      value: 
+      objectReference: {fileID: 1136510068}
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_RootOrder
@@ -3113,7 +3153,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5360558970889154819, guid: 0cbbb0533a56141cf9ffe57d1154b67a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0cbbb0533a56141cf9ffe57d1154b67a, type: 3}
 --- !u!1 &393962154
 GameObject:
@@ -5811,7 +5852,7 @@ GameObject:
   - component: {fileID: 801864774}
   m_Layer: 0
   m_Name: door
-  m_TagString: Untagged
+  m_TagString: Door_level2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

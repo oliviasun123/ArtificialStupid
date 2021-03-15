@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
+
 
 public class Store : MonoBehaviour
 {
@@ -45,6 +47,13 @@ public class Store : MonoBehaviour
             // TODO 这里的result数组，是{金币，弓，剑，紫药水，黄药水}传给下一个scene
             int[] result = new int[] {int.Parse(txt_coins.text), int.Parse(txt_final_1.text), int.Parse(txt_final_2.text), int.Parse(txt_final_3.text), int.Parse(txt_final_4.text)};
             GameData.Instance.SetupStore(result);
+            Dictionary<string, object> customParams = new Dictionary<string, object>();
+            customParams.Add("coins", txt_coins.text);
+            customParams.Add("row", txt_final_1.text);
+            customParams.Add("sword", txt_final_2.text);
+            customParams.Add("purple", txt_final_3.text);
+            customParams.Add("yellow", txt_final_4.text);
+            AnalyticsEvent.LevelQuit(SceneManager.GetActiveScene().name, SceneManager.GetActiveScene().buildIndex, customParams);
             SceneManager.LoadScene(GameData.Instance.GetLevel() + 1);
          });
 

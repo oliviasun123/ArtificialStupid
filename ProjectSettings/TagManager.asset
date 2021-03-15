@@ -27,6 +27,7 @@ TagManager:
   - BlueEnemy
   - HealthPotion
   - BombPotion
+  - Door_level2
   layers:
   - Default
   - TransparentFX
