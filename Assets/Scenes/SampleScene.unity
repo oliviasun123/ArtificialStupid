@@ -1298,7 +1298,7 @@ MonoBehaviour:
   img_level: {fileID: 1547099122}
   btn_tryagain: {fileID: 1941386803}
   btn_exit: {fileID: 907829041}
-  btn_retry: {fileID: 1805859371}
+  btn_pause: {fileID: 1805859371}
 --- !u!1001 &665506116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4088,7 +4088,7 @@ GameObject:
   - component: {fileID: 1805859372}
   - component: {fileID: 1805859371}
   m_Layer: 5
-  m_Name: retry
+  m_Name: pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

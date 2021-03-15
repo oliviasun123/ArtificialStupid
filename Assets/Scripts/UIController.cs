@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
     public GameObject img_level;
 
     public Button btn_tryagain;
-    public Button btn_exit, btn_retry;
+    public Button btn_exit, btn_pause;
 
     private void Awake()
     {
@@ -66,11 +66,14 @@ public class UIController : MonoBehaviour
 
     private void InitDialog()
     {
-        btn_retry.onClick.AddListener(() =>
+        btn_pause.onClick.AddListener(() =>
         {
-            Scene scene = SceneManager.GetActiveScene ();
-            SceneManager.LoadScene(scene.name);
-            // GUILayout.Label ("当前场景: " + scene.name);
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }else{
+                Time.timeScale = 0;
+            }
         });
         btn_exit.onClick.AddListener(() =>
         {

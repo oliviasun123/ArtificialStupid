@@ -4648,7 +4648,7 @@ MonoBehaviour:
   img_level: {fileID: 779960686}
   btn_tryagain: {fileID: 1042121580}
   btn_exit: {fileID: 1209460636}
-  btn_retry: {fileID: 1383652831}
+  btn_pause: {fileID: 1383652831}
 --- !u!114 &662223605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8871,7 +8871,7 @@ GameObject:
   - component: {fileID: 1383652832}
   - component: {fileID: 1383652831}
   m_Layer: 5
-  m_Name: retry
+  m_Name: pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13676,7 +13676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2101669773
 MonoBehaviour:
   m_ObjectHideFlags: 0
