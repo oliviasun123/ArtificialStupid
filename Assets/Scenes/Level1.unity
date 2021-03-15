@@ -3117,7 +3117,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[2].m_Value.m_Target.m_Target
       value: 
-      objectReference: {fileID: 1748553198}
+      objectReference: {fileID: 0}
     - target: {fileID: 4888605078828220281, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3127,12 +3127,12 @@ PrefabInstance:
         type: 3}
       propertyPath: BombText
       value: 
-      objectReference: {fileID: 1748553198}
+      objectReference: {fileID: 0}
     - target: {fileID: 4985270361379078621, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: LifeText
       value: 
-      objectReference: {fileID: 1136510068}
+      objectReference: {fileID: 0}
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_RootOrder
@@ -14373,6 +14373,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7623365307451982763, guid: b60c3ebe7c4fb4c45bd218e875c6689a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8754509273616792369, guid: b60c3ebe7c4fb4c45bd218e875c6689a,
         type: 3}
       propertyPath: m_Name
