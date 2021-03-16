@@ -44,6 +44,16 @@ public class UIController : MonoBehaviour
         txt_Gem.text = "" + gem.ToString();
     }
 
+    public string GetHP()
+    {
+        return txt_HP.text;
+    }
+
+    public string GetBombCount()
+    {
+        return txt_Bomb.text;
+    }
+
     public void DisplayKey()
     {
         img_Key.SetActive(true);
@@ -69,7 +79,7 @@ public class UIController : MonoBehaviour
     {
         btn_tryagain.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Level1");
         });
 
         // print(txt_HP.text[txt_HP.text.Length - 1]);
@@ -90,7 +100,7 @@ public class UIController : MonoBehaviour
             }
         });
         btn_exit.onClick.AddListener(() =>
-        {   
+        {
             Time.timeScale = 1;
             SceneManager.LoadScene("Start");
         });

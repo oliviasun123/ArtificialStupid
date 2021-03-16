@@ -13,8 +13,6 @@ public class MovePlayer : MonoBehaviour
     private int rightFlag = 1, leftFlag = 1, upFlag = 1, downFlag = 1;
     public float m_movSpeed_x = 10;//移动系数
     public float m_movSpeed_y = 10;//移动系数
-    public Text LifeText;
-    public Text BombText;
     private Scene thisScene;
 
     private int BombCount;
@@ -27,22 +25,23 @@ public class MovePlayer : MonoBehaviour
     private bool SafeFlag = false;
     private bool isGreen = false;
     private bool hasKey = false;
-    public Button btn_exit;
 
 
-    private void InitExit()
-    {
-        btn_exit.onClick.AddListener(() =>
-        {
-            Destroy(gameObject);
-        });
-    }
+    // private void InitExit()
+    // {   
+    //     GameObject.DontDestroyOnLoad(btn_exit);
+
+    //     btn_exit.onClick.AddListener(() =>
+    //     {
+    //         Destroy(gameObject);
+    //     });
+    // }
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject.DontDestroyOnLoad(gameObject);
-        InitExit();
+        // InitExit();
 
         int[] basics = UIController.Instance.GetBasicInfo();
         HP = basics[0];
@@ -262,25 +261,26 @@ public class MovePlayer : MonoBehaviour
         if (other.CompareTag("Door_level1"))
         {
             Dictionary<string, object> customParams = new Dictionary<string, object>();
-            customParams.Add("bombs_remain", BombText.text);
-            customParams.Add("life_remain", LifeText.text);
+            customParams.Add("bombs_remain", UIController.Instance.GetBombCount());
+            customParams.Add("life_remain", UIController.Instance.GetHP());
 
             hasKey = UIController.Instance.KeyAvailable();
+            print(customParams);
 
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
-            // SceneManager.LoadScene("Level1");
             SceneManager.LoadScene("Store");
         }
 
         if (other.CompareTag("Door_level2"))
         {
-            // Dictionary<string, object> customParams = new Dictionary<string, object>();
-            // customParams.Add("bombs_remain", BombText.text);
-            // customParams.Add("life_remain", LifeText.text);
+            Dictionary<string, object> customParams = new Dictionary<string, object>();
+            customParams.Add("bombs_remain", UIController.Instance.GetBombCount());
+            customParams.Add("life_remain", UIController.Instance.GetHP());
 
             hasKey = UIController.Instance.KeyAvailable();
-
-            // AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
+            print(customParams);
+            
+            AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Store");
         }
     }

@@ -15,18 +15,18 @@ public class GameData : MonoBehaviour
     public Button btn_exit;
 
 
-    private void InitExit()
-    {
-        btn_exit.onClick.AddListener(() =>
-        {
-            Destroy(gameObject);
-        });
-    }
+    // private void InitExit()
+    // {
+    //     btn_exit.onClick.AddListener(() =>
+    //     {
+    //         Destroy(gameObject);
+    //     });
+    // }
 
     private void Awake()
     {
         Instance = this;
-        InitExit();
+        // InitExit();
     }
 
     public void SetupLevel(int level)

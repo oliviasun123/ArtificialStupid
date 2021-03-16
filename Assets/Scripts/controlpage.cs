@@ -12,7 +12,7 @@ public class controlpage : MonoBehaviour
     private void Awake()
     {
         btn_new.onClick.AddListener(() => {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Level1");
         });
 
         btn_setting.onClick.AddListener(() => {
