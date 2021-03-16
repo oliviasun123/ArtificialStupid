@@ -734,7 +734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91973985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.498, y: -5.434, z: 0}
+  m_LocalPosition: {x: 13.6, y: -4.4, z: 0}
   m_LocalScale: {x: 7.592557, y: 7.659062, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3950,12 +3950,12 @@ MonoBehaviour:
   img_Key: {fileID: 560622881}
   img_gameover: {fileID: 393962154}
   img_level: {fileID: 1960083674}
-  img_next: {fileID: 0}
+  img_next: {fileID: 298513291}
   btn_tryagain: {fileID: 1544585054}
   btn_exit: {fileID: 1301017472}
   btn_pause: {fileID: 1649378360}
-  blue_bomb: {fileID: 0}
-  green_bomb: {fileID: 0}
+  blue_bomb: {fileID: 21300000, guid: 4b74491f2a329ec4ab6e47205d42a4f0, type: 3}
+  green_bomb: {fileID: 21300000, guid: d5d90cb212543f44ca035258dee5da67, type: 3}
 --- !u!114 &618587407
 MonoBehaviour:
   m_ObjectHideFlags: 0

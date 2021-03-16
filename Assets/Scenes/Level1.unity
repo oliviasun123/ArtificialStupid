@@ -5575,9 +5575,12 @@ MonoBehaviour:
   img_Key: {fileID: 1708719521}
   img_gameover: {fileID: 1220636877}
   img_level: {fileID: 366310310}
+  img_next: {fileID: 373620391}
   btn_tryagain: {fileID: 1411332019}
   btn_exit: {fileID: 980465358}
   btn_pause: {fileID: 60962522}
+  blue_bomb: {fileID: 21300000, guid: 4b74491f2a329ec4ab6e47205d42a4f0, type: 3}
+  green_bomb: {fileID: 21300000, guid: d5d90cb212543f44ca035258dee5da67, type: 3}
 --- !u!114 &1049715623
 MonoBehaviour:
   m_ObjectHideFlags: 0
