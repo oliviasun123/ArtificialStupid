@@ -294,10 +294,12 @@ public class MovePlayer : MonoBehaviour
     {
         if (level != 5 && isGreen)
         {
+            // print("why here " + level);
             UIController.Instance.ChangeGreen();
         }
         else if (level != 5 && !isGreen)
         {
+            // print("why here 2 " + level);
             UIController.Instance.ChangeBlue();
         }
 
@@ -335,6 +337,7 @@ public class MovePlayer : MonoBehaviour
         // print(level);
         if (level == 2)
         {
+            print("level2");
             gameObject.transform.position = new Vector3(-2, 16, 0);
         }
 
