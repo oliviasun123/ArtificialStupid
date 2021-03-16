@@ -46,7 +46,6 @@ public class MovePlayer : MonoBehaviour
         int[] basics = UIController.Instance.GetBasicInfo();
         HP = basics[0];
         BombCount = basics[1];
-        thisScene = SceneManager.GetActiveScene();
 
         m_camTransform = Camera.main.transform;
         m_transform = GetComponent<Transform>();
@@ -98,7 +97,7 @@ public class MovePlayer : MonoBehaviour
                 bomb.transform.position = transform.position;
                 bomb.GetComponent<Bomb>().InitBomb(explodeRange, isGreen);
 
-                if (isGreen) 
+                if (isGreen)
                 {
                     UIController.Instance.ChangeBlue();
                 }
@@ -265,7 +264,6 @@ public class MovePlayer : MonoBehaviour
             customParams.Add("life_remain", UIController.Instance.GetHP());
 
             hasKey = UIController.Instance.KeyAvailable();
-            print(customParams);
 
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Store");
@@ -278,8 +276,7 @@ public class MovePlayer : MonoBehaviour
             customParams.Add("life_remain", UIController.Instance.GetHP());
 
             hasKey = UIController.Instance.KeyAvailable();
-            print(customParams);
-            
+
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Store");
         }
@@ -287,7 +284,8 @@ public class MovePlayer : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        // print(level);
+        print(level);
+        thisScene = SceneManager.GetActiveScene();
 
         if (level != 5)
         {
