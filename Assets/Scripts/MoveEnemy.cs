@@ -31,6 +31,11 @@ public class MoveEnemy : MonoBehaviour
     void Update()
     {
         rb.MovePosition((Vector2)transform.position + movement * maxSpeed);
+        DirectionHelper();
+    }
+
+    private void DirectionHelper()
+    {
         List<bool> newDir = FindNewDirectionByRay();
         currentDir = GetCurrentDirection();
 
@@ -43,7 +48,6 @@ public class MoveEnemy : MonoBehaviour
         {
             GenerateMovement(newDir);
         }
-
     }
 
     // [left, right, up, down] = [0, 1, 2, 3]
@@ -100,7 +104,7 @@ public class MoveEnemy : MonoBehaviour
         else if (movement.x > 0 && movement.y > 0) return new List<int>() { 1, 2 };
         else if (movement.x < 0 && movement.y < 0) return new List<int>() { 0, 3 };
         else if (movement.x > 0 && movement.y < 0) return new List<int>() { 1, 3 };
-        
+
         else if (movement.x == 0 && movement.y < 0)
         {
             print("edge case 1");
@@ -181,6 +185,11 @@ public class MoveEnemy : MonoBehaviour
         if (DestroyConditionTrigger(other))
         {
             DestroyAndGetKey();
+        }
+        else if (other.CompareTag("Wall") || other.CompareTag("BlueWall") || other.CompareTag("GreenWall"))
+        {
+            print("stuck with wall");
+            DirectionHelper();
         }
     }
 
