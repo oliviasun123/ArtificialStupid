@@ -90,7 +90,8 @@ public class UIController : MonoBehaviour
             }
         });
         btn_exit.onClick.AddListener(() =>
-        {
+        {   
+            Time.timeScale = 1;
             SceneManager.LoadScene("Start");
         });
     }
