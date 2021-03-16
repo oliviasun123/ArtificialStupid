@@ -5439,15 +5439,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe79bd25ee83837428cd306d372fd84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt_HP: {fileID: 0}
-  txt_Bomb: {fileID: 0}
-  txt_Sword: {fileID: 0}
-  txt_Money: {fileID: 0}
-  txt_Gem: {fileID: 0}
+  txt_HP: {fileID: 1049867832}
+  txt_Bomb: {fileID: 612757630}
+  txt_Sword: {fileID: 476621939}
+  txt_Money: {fileID: 1954623214}
+  txt_Gem: {fileID: 513602064}
   img_Key: {fileID: 1708719521}
   img_gameover: {fileID: 1220636877}
   img_level: {fileID: 366310310}
-  img_next: {fileID: 0}
+  img_next: {fileID: 1229937597}
   btn_tryagain: {fileID: 1411332019}
   btn_exit: {fileID: 980465358}
   btn_pause: {fileID: 60962522}
@@ -6588,7 +6588,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1124793518}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -6618,7 +6618,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9acda9ff890a74bb3827d4257618fce0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68691b8063b922043812d120bf33dce8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9093,7 +9093,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Setting
+  m_Text: 
 --- !u!222 &1851768886
 CanvasRenderer:
   m_ObjectHideFlags: 0

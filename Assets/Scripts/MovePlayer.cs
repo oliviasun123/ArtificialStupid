@@ -292,30 +292,28 @@ public class MovePlayer : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        if (level != 5 && isGreen)
-        {
-            // print("why here " + level);
-            UIController.Instance.ChangeGreen();
-        }
-        else if (level != 5 && !isGreen)
-        {
-            // print("why here 2 " + level);
-            UIController.Instance.ChangeBlue();
-        }
-
         thisScene = SceneManager.GetActiveScene();
-        StartCoroutine(HideLevelAnimation());
 
         if (level != 5)
         {
             GameData.Instance.SetupLevel(level);
-
+            StartCoroutine(HideLevelAnimation());
         }
 
         if (level == 1)
         {
             return;
         }
+
+        if (level != 5 && isGreen)
+        {
+            UIController.Instance.ChangeGreen();
+        }
+        else if (level != 5 && !isGreen)
+        {
+            UIController.Instance.ChangeBlue();
+        }
+
 
         if (level == 5)
         {
