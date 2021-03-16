@@ -284,7 +284,6 @@ public class MovePlayer : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        print(level);
         thisScene = SceneManager.GetActiveScene();
 
         if (level != 5)
