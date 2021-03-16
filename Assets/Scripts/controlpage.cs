@@ -15,9 +15,5 @@ public class controlpage : MonoBehaviour
             SceneManager.LoadScene("Level1");
         });
 
-        btn_setting.onClick.AddListener(() => {
-            SceneManager.LoadScene("Start");
-        });
-
     }
 }
