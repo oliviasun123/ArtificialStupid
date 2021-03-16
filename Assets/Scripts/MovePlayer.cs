@@ -23,7 +23,7 @@ public class MovePlayer : MonoBehaviour
     private float explodeRange = 2.0f;
     private float SafeTime = 2.0f;
     private bool SafeFlag = false;
-    private bool isGreen = false;
+    private bool isGreen;
     private bool hasKey = false;
 
 
@@ -40,6 +40,8 @@ public class MovePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isGreen = false;
+
         GameObject.DontDestroyOnLoad(gameObject);
         // InitExit();
 
@@ -290,6 +292,15 @@ public class MovePlayer : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
+        if (level != 5 && isGreen)
+        {
+            UIController.Instance.ChangeGreen();
+        }
+        else if (level != 5 && !isGreen)
+        {
+            UIController.Instance.ChangeBlue();
+        }
+
         thisScene = SceneManager.GetActiveScene();
         StartCoroutine(HideLevelAnimation());
 
@@ -324,7 +335,7 @@ public class MovePlayer : MonoBehaviour
         // print(level);
         if (level == 2)
         {
-            gameObject.transform.position = new Vector3(-2, 19, 0);
+            gameObject.transform.position = new Vector3(-2, 16, 0);
         }
 
         if (level == 3)
