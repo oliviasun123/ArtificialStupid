@@ -38,6 +38,7 @@ public class MoveEnemy : MonoBehaviour
         {
             GenerateMovement(newDir);
         }
+
     }
 
     // [left, right, up, down] = [0, 1, 2, 3]
@@ -79,10 +80,10 @@ public class MoveEnemy : MonoBehaviour
 
     private void NormalizeMovement()
     {
-        if (movement.x < 0 && movement.x > -0.1f) movement.x = -0.1f;
-        if (movement.y < 0 && movement.y > -0.1f) movement.y = -0.1f;
-        if (movement.x > 0 && movement.x < 0.1f) movement.x = 0.1f;
-        if (movement.y > 0 && movement.y < 0.1f) movement.y = 0.1f;
+        if (movement.x < 0 && movement.x > -0.2f) movement.x = -0.2f;
+        if (movement.y < 0 && movement.y > -0.2f) movement.y = -0.2f;
+        if (movement.x > 0 && movement.x < 0.2f) movement.x = 0.2f;
+        if (movement.y > 0 && movement.y < 0.2f) movement.y = 0.2f;
     }
 
 
@@ -94,10 +95,27 @@ public class MoveEnemy : MonoBehaviour
         else if (movement.x > 0 && movement.y > 0) return new List<int>() { 1, 2 };
         else if (movement.x < 0 && movement.y < 0) return new List<int>() { 0, 3 };
         else if (movement.x > 0 && movement.y < 0) return new List<int>() { 1, 3 };
-        else if (movement.x == 0 && movement.y < 0) return new List<int>() { -1, 3 };
-        else if (movement.x == 0 && movement.y < 0) return new List<int>() { -1, 2 };
-        else if (movement.x > 0 && movement.y == 0) return new List<int>() { -1, 1 };
-        else if (movement.x > 0 && movement.y == 0) return new List<int>() { -1, 0 };
+        
+        else if (movement.x == 0 && movement.y < 0)
+        {
+            print("edge case 1");
+            return new List<int>() { -1, 3 };
+        }
+        else if (movement.x == 0 && movement.y > 0)
+        {
+            print("edge case 2");
+            return new List<int>() { -1, 2 };
+        }
+        else if (movement.x > 0 && movement.y == 0)
+        {
+            print("edge case 3");
+            return new List<int>() { -1, 1 };
+        }
+        else if (movement.x < 0 && movement.y == 0)
+        {
+            print("edge case 4");
+            return new List<int>() { -1, 0 };
+        }
 
         return new List<int>() { -1, -1 };
     }
