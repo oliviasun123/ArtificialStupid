@@ -4336,6 +4336,8 @@ MonoBehaviour:
   btn_tryagain: {fileID: 1544585054}
   btn_exit: {fileID: 1301017472}
   btn_pause: {fileID: 1649378360}
+  btn_setting: {fileID: 1331830618}
+  btn_close: {fileID: 691330299}
   blue_bomb: {fileID: 21300000, guid: 4b74491f2a329ec4ab6e47205d42a4f0, type: 3}
   green_bomb: {fileID: 21300000, guid: d5d90cb212543f44ca035258dee5da67, type: 3}
   level_scene: {fileID: 1960083674}
@@ -13338,7 +13340,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 22
+  orthographic size: 26
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

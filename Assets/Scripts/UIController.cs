@@ -15,7 +15,7 @@ public class UIController : MonoBehaviour
     public GameObject img_next;
 
     public Button btn_tryagain;
-    public Button btn_exit, btn_pause;
+    public Button btn_exit, btn_pause, btn_setting, btn_close;
     public Sprite blue_bomb, green_bomb;
     public GameObject level_scene;
 
@@ -94,6 +94,16 @@ public class UIController : MonoBehaviour
 
     private void InitDialog()
     {
+        btn_close.onClick.AddListener(() =>
+        {
+            Time.timeScale = 1;
+        });
+
+        btn_setting.onClick.AddListener(() =>
+        {
+            Time.timeScale = 0;
+        });
+
         btn_pause.onClick.AddListener(() =>
         {
             if (Time.timeScale == 0)
@@ -105,6 +115,7 @@ public class UIController : MonoBehaviour
                 Time.timeScale = 0;
             }
         });
+
         btn_exit.onClick.AddListener(() =>
         {
             Time.timeScale = 1;

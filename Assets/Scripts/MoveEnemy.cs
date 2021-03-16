@@ -39,7 +39,7 @@ public class MoveEnemy : MonoBehaviour
             GenerateMovement(newDir);
         }
 
-        else if (currentDir[0] == -1 && newDir[currentDir[1]] == false)
+        else if (currentDir[1] != -1 && currentDir[0] == -1 && newDir[currentDir[1]] == false)
         {
             GenerateMovement(newDir);
         }
