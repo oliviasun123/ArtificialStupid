@@ -282,6 +282,18 @@ public class MovePlayer : MonoBehaviour
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Store");
         }
+
+        if (other.CompareTag("Door_level3"))
+        {
+            Dictionary<string, object> customParams = new Dictionary<string, object>();
+            customParams.Add("bombs_remain", UIController.Instance.GetBombCount());
+            customParams.Add("life_remain", UIController.Instance.GetHP());
+
+            hasKey = UIController.Instance.KeyAvailable();
+
+            AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
+            SceneManager.LoadScene("Start");
+        }
     }
 
     IEnumerator HideLevelAnimation()

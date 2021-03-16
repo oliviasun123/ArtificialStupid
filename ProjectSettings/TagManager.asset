@@ -28,6 +28,7 @@ TagManager:
   - HealthPotion
   - BombPotion
   - Door_level2
+  - Door_level3
   layers:
   - Default
   - TransparentFX
