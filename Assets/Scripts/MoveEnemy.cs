@@ -13,6 +13,7 @@ public class MoveEnemy : MonoBehaviour
     private List<int> currentDir;
     private float timeLeft;
     private bool isDead = false;
+    private Vector2 destPosition;
 
 
     void Start()
@@ -30,7 +31,8 @@ public class MoveEnemy : MonoBehaviour
 
     void Update()
     {
-        rb.MovePosition((Vector2)transform.position + movement * maxSpeed);
+        destPosition = (Vector2)transform.position + movement * maxSpeed;
+        rb.MovePosition(destPosition);
         DirectionHelper();
     }
 
@@ -46,6 +48,11 @@ public class MoveEnemy : MonoBehaviour
 
         else if (currentDir[1] != -1 && currentDir[0] == -1 && newDir[currentDir[1]] == false)
         {
+            GenerateMovement(newDir);
+        }
+        // fix stuck with wall bug
+        else if (currentDir[1] == -1)
+        {   
             GenerateMovement(newDir);
         }
     }
@@ -89,8 +96,8 @@ public class MoveEnemy : MonoBehaviour
 
     private void NormalizeMovement()
     {
-        if (movement.x < 0 && movement.x > -0.2f) movement.x = -0.2f;
-        if (movement.y < 0 && movement.y > -0.2f) movement.y = -0.2f;
+        if (movement.x <= 0 && movement.x > -0.2f) movement.x = -0.2f;
+        if (movement.y <= 0 && movement.y > -0.2f) movement.y = -0.2f;
         if (movement.x > 0 && movement.x < 0.2f) movement.x = 0.2f;
         if (movement.y > 0 && movement.y < 0.2f) movement.y = 0.2f;
     }
