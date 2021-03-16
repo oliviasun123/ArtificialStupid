@@ -12,15 +12,27 @@ public class UIController : MonoBehaviour
     public GameObject img_Key;
     public GameObject img_gameover;
     public GameObject img_level;
+    public GameObject img_next;
 
     public Button btn_tryagain;
     public Button btn_exit, btn_pause;
+    public Sprite blue_bomb, green_bomb;
 
     private void Awake()
     {
         Instance = this;
         InitTryAgain();
         InitDialog();
+    }
+
+    public void ChangeBlue()
+    {
+        img_next.gameObject.GetComponent<Image>().sprite = blue_bomb;
+    }
+
+    public void ChangeGreen()
+    {
+        img_next.gameObject.GetComponent<Image>().sprite = green_bomb;
     }
 
     public void RefreshInfo(int HP, int bomb, int sword, int money, int gem)
@@ -56,7 +68,7 @@ public class UIController : MonoBehaviour
     private void InitTryAgain()
     {
         btn_tryagain.onClick.AddListener(() =>
-        {   
+        {
             SceneManager.LoadScene("SampleScene");
         });
 
@@ -71,7 +83,9 @@ public class UIController : MonoBehaviour
             if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
-            }else{
+            }
+            else
+            {
                 Time.timeScale = 0;
             }
         });

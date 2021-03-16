@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameData : MonoBehaviour
 {
@@ -11,10 +12,21 @@ public class GameData : MonoBehaviour
     public int Money;
     public int BowCount;
     public int SwordCount;
+    public Button btn_exit;
+
+
+    private void InitExit()
+    {
+        btn_exit.onClick.AddListener(() =>
+        {
+            Destroy(gameObject);
+        });
+    }
 
     private void Awake()
     {
         Instance = this;
+        InitExit();
     }
 
     public void SetupLevel(int level)
@@ -33,7 +45,7 @@ public class GameData : MonoBehaviour
 
     public int[] GetStoreList()
     {
-        return new int[] {Money, BowCount, SwordCount, HP, BombCount};
+        return new int[] { Money, BowCount, SwordCount, HP, BombCount };
     }
 
     public int GetLevel()

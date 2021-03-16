@@ -27,12 +27,22 @@ public class MovePlayer : MonoBehaviour
     private bool SafeFlag = false;
     private bool isGreen = false;
     private bool hasKey = false;
+    public Button btn_exit;
 
+
+    private void InitExit()
+    {
+        btn_exit.onClick.AddListener(() =>
+        {
+            Destroy(gameObject);
+        });
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject.DontDestroyOnLoad(gameObject);
+        InitExit();
 
         int[] basics = UIController.Instance.GetBasicInfo();
         HP = basics[0];
@@ -88,6 +98,16 @@ public class MovePlayer : MonoBehaviour
 
                 bomb.transform.position = transform.position;
                 bomb.GetComponent<Bomb>().InitBomb(explodeRange, isGreen);
+
+                if (isGreen) 
+                {
+                    UIController.Instance.ChangeBlue();
+                }
+                else
+                {
+                    UIController.Instance.ChangeGreen();
+                }
+
                 isGreen = isGreen == true ? false : true;
             }
 
@@ -196,7 +216,7 @@ public class MovePlayer : MonoBehaviour
 
         if (other.CompareTag("Money"))
         {
-            MoneyCount++;
+            MoneyCount += 2;
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
         }
 
@@ -254,13 +274,13 @@ public class MovePlayer : MonoBehaviour
 
         if (other.CompareTag("Door_level2"))
         {
-            Dictionary<string, object> customParams = new Dictionary<string, object>();
-            customParams.Add("bombs_remain", BombText.text);
-            customParams.Add("life_remain", LifeText.text);
+            // Dictionary<string, object> customParams = new Dictionary<string, object>();
+            // customParams.Add("bombs_remain", BombText.text);
+            // customParams.Add("life_remain", LifeText.text);
 
             hasKey = UIController.Instance.KeyAvailable();
 
-            AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
+            // AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Store");
         }
     }
@@ -299,6 +319,11 @@ public class MovePlayer : MonoBehaviour
 
         // print(level);
         if (level == 2)
+        {
+            gameObject.transform.position = new Vector3(-2, 19, 0);
+        }
+
+        if (level == 3)
         {
             gameObject.transform.position = new Vector3(-4, 15, 0);
         }
