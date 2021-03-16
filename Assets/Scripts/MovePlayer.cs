@@ -282,9 +282,16 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
+    IEnumerator HideLevelAnimation()
+    {
+        yield return new WaitForSeconds(2);
+        UIController.Instance.HideLevelScene();
+    }
+
     void OnLevelWasLoaded(int level)
     {
         thisScene = SceneManager.GetActiveScene();
+        StartCoroutine(HideLevelAnimation());
 
         if (level != 5)
         {

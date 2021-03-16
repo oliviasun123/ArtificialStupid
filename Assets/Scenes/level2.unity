@@ -5594,6 +5594,7 @@ MonoBehaviour:
   btn_pause: {fileID: 60962522}
   blue_bomb: {fileID: 21300000, guid: 4b74491f2a329ec4ab6e47205d42a4f0, type: 3}
   green_bomb: {fileID: 21300000, guid: d5d90cb212543f44ca035258dee5da67, type: 3}
+  level_scene: {fileID: 366310310}
 --- !u!114 &1049715623
 MonoBehaviour:
   m_ObjectHideFlags: 0

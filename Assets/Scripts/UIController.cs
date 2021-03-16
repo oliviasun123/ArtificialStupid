@@ -17,12 +17,18 @@ public class UIController : MonoBehaviour
     public Button btn_tryagain;
     public Button btn_exit, btn_pause;
     public Sprite blue_bomb, green_bomb;
+    public GameObject level_scene;
 
     private void Awake()
     {
         Instance = this;
         InitTryAgain();
         InitDialog();
+    }
+
+    public void HideLevelScene()
+    {
+        level_scene.SetActive(false);
     }
 
     public void ChangeBlue()
