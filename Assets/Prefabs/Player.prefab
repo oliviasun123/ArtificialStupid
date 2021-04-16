@@ -166,8 +166,6 @@ MonoBehaviour:
     type: 3}
   m_movSpeed_x: 10
   m_movSpeed_y: 10
-  LifeText: {fileID: 0}
-  BombText: {fileID: 0}
 --- !u!114 &3827874013809517862
 MonoBehaviour:
   m_ObjectHideFlags: 0

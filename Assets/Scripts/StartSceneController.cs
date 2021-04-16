@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartSceneController : MonoBehaviour
 {
-    public Button btn_new, btn_quit, btn_setting;
+    public Button btn_new, btn_quit, btn_setting, btn_tutorial;
 
 
     private void Awake()
@@ -21,6 +21,10 @@ public class StartSceneController : MonoBehaviour
 
         btn_quit.onClick.AddListener(() => {
             Application.Quit();
+        });
+
+        btn_tutorial.onClick.AddListener(() => {
+            SceneManager.LoadScene("sample");
         });
     }
 }

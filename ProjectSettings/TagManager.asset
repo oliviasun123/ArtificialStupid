@@ -29,6 +29,7 @@ TagManager:
   - BombPotion
   - Door_level2
   - Door_level3
+  - Door_sample
   layers:
   - Default
   - TransparentFX

@@ -259,6 +259,11 @@ public class MovePlayer : MonoBehaviour
             gameObject.tag = "Killer";
         }
 
+        if (other.CompareTag("Door_sample"))
+        {
+            SceneManager.LoadScene("Start");
+        }
+
         if (other.CompareTag("Door_level1"))
         {
             Dictionary<string, object> customParams = new Dictionary<string, object>();
