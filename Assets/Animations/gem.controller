@@ -7,7 +7,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: from_box
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1707694650353284941}
   m_Solo: 0
@@ -63,7 +66,7 @@ AnimatorStateMachine:
     m_Position: {x: 400, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5214882914790475656}
-    m_Position: {x: 435, y: 105, z: 0}
+    m_Position: {x: 440, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -82,7 +85,13 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: gem
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: from_box
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

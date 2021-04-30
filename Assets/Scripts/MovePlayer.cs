@@ -69,20 +69,20 @@ public class MovePlayer : MonoBehaviour
         float xm = 0, ym = 0;
 
         //按键盘W向上移动
-        if (Input.GetKey(KeyCode.W) && upFlag == 1 && !Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
         {
             ym += m_movSpeed_y * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.S) && downFlag == 1 && !Input.GetKey(KeyCode.W))//按键盘S向下移动
+        else if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))//按键盘S向下移动
         {
             ym -= m_movSpeed_y * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.A) && leftFlag == 1 && !Input.GetKey(KeyCode.D))//按键盘A向左移动
+        if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))//按键盘A向左移动
         {
             xm -= m_movSpeed_x * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.D) && rightFlag == 1 && !Input.GetKey(KeyCode.A))//按键盘D向右移动
+        else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))//按键盘D向右移动
         {
             xm += m_movSpeed_x * Time.deltaTime;
         }
@@ -119,58 +119,58 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
-    // 碰撞开始
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.contacts[0].normal.x == -1)
-        {
-            rightFlag = 0;
-            // Debug.Log("RIGHT!!");
-        }
-        if (coll.contacts[0].normal.x == 1)
-        {
-            leftFlag = 0;
-            // Debug.Log("LEFT!!");
-        }
-        if (coll.contacts[0].normal.y == -1)
-        {
-            upFlag = 0;
-            // Debug.Log("UP!!");
-        }
-        if (coll.contacts[0].normal.y == 1)
-        {
-            downFlag = 0;
-            // Debug.Log("DOWN!!");
-        }
-    }
+    // // 碰撞开始
+    // void OnCollisionEnter2D(Collision2D coll)
+    // {
+    //     if (coll.contacts[0].normal.x == -1)
+    //     {
+    //         rightFlag = 0;
+    //         // Debug.Log("RIGHT!!");
+    //     }
+    //     if (coll.contacts[0].normal.x == 1)
+    //     {
+    //         leftFlag = 0;
+    //         // Debug.Log("LEFT!!");
+    //     }
+    //     if (coll.contacts[0].normal.y == -1)
+    //     {
+    //         upFlag = 0;
+    //         // Debug.Log("UP!!");
+    //     }
+    //     if (coll.contacts[0].normal.y == 1)
+    //     {
+    //         downFlag = 0;
+    //         // Debug.Log("DOWN!!");
+    //     }
+    // }
 
-    void OnCollisionExit2D(Collision2D coll)
-    {
-        rightFlag = 1;
-        leftFlag = 1;
-        upFlag = 1;
-        downFlag = 1;
-    }
+    // void OnCollisionExit2D(Collision2D coll)
+    // {
+    //     rightFlag = 1;
+    //     leftFlag = 1;
+    //     upFlag = 1;
+    //     downFlag = 1;
+    // }
 
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        if (coll.contacts[0].normal.x == -1)
-        {
-            rightFlag = 0;
-        }
-        if (coll.contacts[0].normal.x == 1)
-        {
-            leftFlag = 0;
-        }
-        if (coll.contacts[0].normal.y == -1)
-        {
-            upFlag = 0;
-        }
-        if (coll.contacts[0].normal.y == 1)
-        {
-            downFlag = 0;
-        }
-    }
+    // void OnCollisionStay2D(Collision2D coll)
+    // {
+    //     if (coll.contacts[0].normal.x == -1)
+    //     {
+    //         rightFlag = 0;
+    //     }
+    //     if (coll.contacts[0].normal.x == 1)
+    //     {
+    //         leftFlag = 0;
+    //     }
+    //     if (coll.contacts[0].normal.y == -1)
+    //     {
+    //         upFlag = 0;
+    //     }
+    //     if (coll.contacts[0].normal.y == 1)
+    //     {
+    //         downFlag = 0;
+    //     }
+    // }
 
     private bool isBomb(Collider2D other)
     {

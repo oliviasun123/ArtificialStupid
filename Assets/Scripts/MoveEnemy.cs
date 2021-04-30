@@ -195,7 +195,7 @@ public class MoveEnemy : MonoBehaviour
         }
         else if (other.CompareTag("Wall") || other.CompareTag("BlueWall") || other.CompareTag("GreenWall"))
         {
-            print("stuck with wall");
+            // print("stuck with wall");
             DirectionHelper();
         }
     }
