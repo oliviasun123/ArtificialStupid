@@ -9,6 +9,7 @@ public class Bomb : MonoBehaviour
     public Sprite greenBomb;
     public Sprite blueBomb;
     private bool isGreen;
+    public GameObject boomEffect;
 
     private void Awake()
     {
@@ -33,15 +34,23 @@ public class Bomb : MonoBehaviour
     IEnumerator explode(float explodeRange)
     {
         yield return new WaitForSeconds(delayTime);
+        
+        // create bomb effect at the same location TODO: add tag, change size(explode range)
+        GameObject bombEffectObj = Instantiate(boomEffect, transform.position, Quaternion.identity);
+        bombEffectObj.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * explodeRange;
+
         if (isGreen)
         {
-            gameObject.tag = "GreenBomb";
+            bombEffectObj.tag = "GreenBomb";
         }
         else
         {
-            gameObject.tag = "BlueBomb";
+            bombEffectObj.tag = "BlueBomb";
         }
-        gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * explodeRange;
+        // old way to explode ↓
+        // gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * explodeRange;
+
+
         yield return new WaitForSeconds(delayTime / 4);
         Destroy(gameObject);
     }
