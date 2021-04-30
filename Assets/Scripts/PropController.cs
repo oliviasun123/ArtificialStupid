@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PropController : MonoBehaviour
 {   
-    private Animation anim;
+    private Animator anim;
 
     private void OnTriggerEnter2D(Collider2D other)
     {   
@@ -17,8 +17,8 @@ public class PropController : MonoBehaviour
                     GameObject gemObj = GetKeyHelper.Instance.GenerateGem(transform.position);
                     UIController.Instance.HideKey();
                     Destroy(gameObject);
-                    anim = gemObj.GetComponent<Animation>();
-                    anim.Play("prop_diamond");
+                    anim = gemObj.GetComponent<Animator>();
+                    anim.SetBool("from_box", true);
                 }
             }
             else if (gameObject.tag != "Untouch")
