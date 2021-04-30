@@ -8,10 +8,6 @@ using System;
 
 public class Store : MonoBehaviour
 {
-
-    
-    
-    
     // btns for add/remove goods
     public Button btn_goods_1_more, btn_goods_1_less;
     public Button btn_goods_2_more, btn_goods_2_less;
@@ -24,7 +20,9 @@ public class Store : MonoBehaviour
     public int coins_per_goods_2 = 1;
     public int coins_per_goods_3 = 1;
     public Image img1, img2, img3; // show img 
-    public Sprite sprite_key, sprite_yellow, sprite_purple, sprite_row, sprite_sword; 
+    public Sprite sprite_key, sprite_yellow, sprite_purple, sprite_row, sprite_sword;
+    // UI labls to show num of existed goods 
+    public Text final_1, final_2, final_3;
 
     // goods setting
     public Dictionary<string, object>[] selected_goods;
@@ -59,6 +57,11 @@ public class Store : MonoBehaviour
         total_count["sword"] = basics[2];
         total_count["purple"] = basics[3];
         total_count["yellow"] = basics[4];
+
+        // show num of existed goods
+        final_1.text = total_count[(string)selected_goods[0]["name"]].ToString();
+        final_2.text = total_count[(string)selected_goods[1]["name"]].ToString();
+        final_3.text = total_count[(string)selected_goods[2]["name"]].ToString();
 
         //debug info
         PrintDebugInfo();
@@ -106,7 +109,7 @@ public class Store : MonoBehaviour
 
     private void Awake()
     {
-
+        // btn name in UI is "next level"
         btn_return.onClick.AddListener(() => {
 
             // TODO 这里的result数组，是{金币，弓，剑，紫药水，黄药水}传给下一个scene
@@ -141,6 +144,8 @@ public class Store : MonoBehaviour
             }
             txt_goods_1.text = after_goods.ToString();
             txt_coins.text = after_coin.ToString();
+
+
          });
 
         btn_goods_1_less.onClick.AddListener(() => {
@@ -240,7 +245,12 @@ public class Store : MonoBehaviour
             txt_goods_1.text = "0";
             txt_goods_2.text = "0";
             txt_goods_3.text = "0";
-         });
+            final_1.text = total_count[(string)selected_goods[0]["name"]].ToString();
+            final_2.text = total_count[(string)selected_goods[1]["name"]].ToString();
+            final_3.text = total_count[(string)selected_goods[2]["name"]].ToString();
+
+
+        });
 
     }
 }
