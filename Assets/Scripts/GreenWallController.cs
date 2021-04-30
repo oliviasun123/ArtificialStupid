@@ -5,7 +5,7 @@ using UnityEngine;
 public class GreenWallController : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
-    {
+    {   
         if (other.CompareTag("GreenBomb") && gameObject.tag == "GreenWall")
         {
             Destroy(gameObject);

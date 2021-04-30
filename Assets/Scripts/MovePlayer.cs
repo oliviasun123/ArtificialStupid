@@ -41,8 +41,12 @@ public class MovePlayer : MonoBehaviour
     void Start()
     {
         isGreen = false;
+        thisScene = SceneManager.GetActiveScene();
 
-        GameObject.DontDestroyOnLoad(gameObject);
+        if (thisScene.name != "sample")
+        {
+            GameObject.DontDestroyOnLoad(gameObject);
+        }
         // InitExit();
 
         int[] basics = UIController.Instance.GetBasicInfo();
@@ -309,7 +313,15 @@ public class MovePlayer : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
+        print("OnLevelWasLoaded");
+
         thisScene = SceneManager.GetActiveScene();
+
+        if (level == 6)
+        {
+            // tutorial level 
+            return;
+        }
 
         if (level != 5)
         {
@@ -352,7 +364,6 @@ public class MovePlayer : MonoBehaviour
         // print(level);
         if (level == 2)
         {
-            print("level2");
             gameObject.transform.position = new Vector3(-2, 16, 0);
         }
 

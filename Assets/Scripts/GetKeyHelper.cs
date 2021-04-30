@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: unused file by now
 public class GetKeyHelper : MonoBehaviour
 {
     public static GetKeyHelper Instance;
