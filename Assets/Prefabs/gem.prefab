@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2211453287063419667}
   - component: {fileID: -3991254305676640378}
   - component: {fileID: 1069845429084099920}
+  - component: {fileID: 3990734651711963657}
   m_Layer: 0
   m_Name: gem
   m_TagString: Gem
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2211453287063419664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.610254, y: -4.8718214, z: 0}
+  m_LocalPosition: {x: -27.610254, y: -4.81, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -153,3 +154,22 @@ PolygonCollider2D:
       - {x: -0.01, y: -1.56}
       - {x: 0.13, y: -1.42}
       - {x: 0.78, y: -0.64}
+--- !u!95 &3990734651711963657
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2211453287063419664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d450ca2adac15146af13c634783c68f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

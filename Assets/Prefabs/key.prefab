@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1551211930430020910}
   - component: {fileID: 492492385942452886}
   - component: {fileID: 1551211930430020908}
+  - component: {fileID: 2008030538}
   m_Layer: 0
   m_Name: key
   m_TagString: Key
@@ -205,3 +206,22 @@ PolygonCollider2D:
       - {x: 1.7099999, y: 1.4449999}
       - {x: 1.64, y: 1.4449999}
       - {x: 1.63, y: 1.4549999}
+--- !u!95 &2008030538
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551211930430020909}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49956d3b416ea41408d8d2eaf012eb71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

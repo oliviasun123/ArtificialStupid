@@ -10,6 +10,7 @@ public class GetKeyHelper : MonoBehaviour
     public GameObject KeyPrefab;
     public GameObject GemPrefab;
 
+
     private void Awake()
     {
         Instance = this;
@@ -25,13 +26,16 @@ public class GetKeyHelper : MonoBehaviour
         StartCoroutine(TouchableKey(keyObj));
     }
 
-    public void GenerateGem(Vector2 pos)
+    public GameObject GenerateGem(Vector2 pos)
     {
         // sp.sprite = KeySprite;
         GameObject gemObj = GameObject.Instantiate(GemPrefab);
+        // flash animation for gem out of box
         gemObj.tag = "Untouch";
-        gemObj.transform.position = pos;
+        gemObj.transform.position = pos;        
         StartCoroutine(TouchableGem(gemObj));
+
+        return gemObj;
     }
 
     IEnumerator TouchableKey(GameObject keyObj)
