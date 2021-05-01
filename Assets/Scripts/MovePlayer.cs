@@ -26,6 +26,8 @@ public class MovePlayer : MonoBehaviour
     private bool isGreen;
     private bool hasKey = false;
 
+    private AudioSource touchMusic;
+
 
     // private void InitExit()
     // {   
@@ -55,6 +57,8 @@ public class MovePlayer : MonoBehaviour
 
         m_camTransform = Camera.main.transform;
         m_transform = GetComponent<Transform>();
+        touchMusic = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -303,6 +307,7 @@ public class MovePlayer : MonoBehaviour
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Start");
         }
+        touchMusic.Play();
     }
 
     IEnumerator HideLevelAnimation()
