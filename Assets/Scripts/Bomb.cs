@@ -52,6 +52,7 @@ public class Bomb : MonoBehaviour
 
 
         yield return new WaitForSeconds(delayTime / 4);
+        AudioManager.instance.Play("bomb");
         Destroy(gameObject);
     }
 
