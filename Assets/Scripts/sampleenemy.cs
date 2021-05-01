@@ -145,7 +145,7 @@ public class sampleenemy : MonoBehaviour
         if (gameObject.layer == 10)
         {
             GetKeyHelper.Instance.GenerateKey(transform.position);
-            text.text="Good job! Now you are ready to go to LEVEL1 through the door!";
+            text.text="Good job! Now you are ready to finish the sample level through the door!";
             text2.SetActive(false);
             Destroy(gameObject);
         }
