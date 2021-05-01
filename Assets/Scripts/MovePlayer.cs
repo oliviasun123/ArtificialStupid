@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
 using UnityEngine.UI;
+using System;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -308,7 +309,7 @@ public class MovePlayer : MonoBehaviour
             hasKey = UIController.Instance.KeyAvailable();
 
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
-            SceneManager.LoadScene("Start");
+            SceneManager.LoadScene("Congratulation");
         }
         // touchMusic.Play();
     }
@@ -398,8 +399,11 @@ public class MovePlayer : MonoBehaviour
         }
 
         else if (level == 3)
-        {
-            gameObject.transform.position = new Vector3(-4, 15, 0);
+        {   
+            System.Random rand = new System.Random();
+            List<Vector3> FINAL_LOCATION = new List<Vector3>(){new Vector3(-15, 9, 0), new Vector3(-11, -2, 0), new Vector3(23, -3, 0), new Vector3(50, 14, 0), new Vector3(33, 8, 0)};
+            int randIdx = rand.Next(0, 5);
+            gameObject.transform.position = FINAL_LOCATION[randIdx];
         }
 
         else if (level == 7)

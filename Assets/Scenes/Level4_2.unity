@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 158259148}
   - component: {fileID: 158259147}
   - component: {fileID: 158259146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blueEnemy1 (3)
   m_TagString: BlueEnemy
   m_Icon: {fileID: 0}

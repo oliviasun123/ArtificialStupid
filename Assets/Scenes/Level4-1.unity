@@ -4354,7 +4354,7 @@ GameObject:
   - component: {fileID: 805061759}
   - component: {fileID: 805061758}
   - component: {fileID: 805061757}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: greenEnemy1 (2)
   m_TagString: GreenEnemy
   m_Icon: {fileID: 0}

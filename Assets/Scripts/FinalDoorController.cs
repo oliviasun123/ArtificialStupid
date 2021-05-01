@@ -5,17 +5,17 @@ using System;
 
 public class FinalDoorController : MonoBehaviour
 {
-    public GameObject[] finalDoors = new GameObject[4];
+    public GameObject[] finalDoors = new GameObject[5];
 
     // Start is called before the first frame update
     void Start()
     {
         System.Random rand = new System.Random();
-        int num1 = rand.Next(0, 4);
+        int num1 = rand.Next(0, 5);
         int num2 = num1;
         while (num2 == num1)
         {
-            num2 = rand.Next(0, 4);
+            num2 = rand.Next(0, 5);
         }
 
         for (int i = 0; i < finalDoors.Length; i++)
