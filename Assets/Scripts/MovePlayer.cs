@@ -66,7 +66,12 @@ public class MovePlayer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if (SwordCount > 0)
+        {
+            gameObject.tag = "Killer";
+        }
+
         if (Input.GetKeyDown(KeyCode.N))
         {
             SceneManager.LoadScene("Store");
@@ -276,7 +281,7 @@ public class MovePlayer : MonoBehaviour
             SwordCount++;
             AudioManager.instance.PlaySwordGet();
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
-            gameObject.tag = "Killer";
+            // gameObject.tag = "Killer";
         }
 
         if (other.CompareTag("Door_sample"))
