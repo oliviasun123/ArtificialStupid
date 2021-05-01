@@ -177,7 +177,8 @@ public class MoveEnemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (DestroyConditionTrigger(other))
-        {
+        {   
+            AudioManager.instance.PlayMonsterDeath();
             DestroyAndGetKey();
         }
 

@@ -26,7 +26,7 @@ public class MovePlayer : MonoBehaviour
     private bool isGreen;
     private bool hasKey = false;
 
-    private AudioSource touchMusic;
+    // private AudioSource touchMusic;
 
 
     // private void InitExit()
@@ -57,7 +57,7 @@ public class MovePlayer : MonoBehaviour
 
         m_camTransform = Camera.main.transform;
         m_transform = GetComponent<Transform>();
-        touchMusic = GetComponent<AudioSource>();
+        // touchMusic = GetComponent<AudioSource>();
 
     }
 
@@ -246,6 +246,7 @@ public class MovePlayer : MonoBehaviour
                 else
                 {
                     HP--;
+                    AudioManager.instance.PlayTouch();
                     SafeFlag = true;
                     StartCoroutine(GraceTime(SafeTime));
                 }
@@ -307,7 +308,7 @@ public class MovePlayer : MonoBehaviour
             AnalyticsEvent.LevelComplete(thisScene.name, thisScene.buildIndex, customParams);
             SceneManager.LoadScene("Start");
         }
-        touchMusic.Play();
+        // touchMusic.Play();
     }
 
     IEnumerator HideLevelAnimation()

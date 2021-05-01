@@ -6,23 +6,43 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public AudioSource theAS;
+    private AudioSource theAS;
+
+    public AudioClip bomb, playerTouch, monsterDeath, gameOver;
 
     private void Awake()
     {
-        if(instance == null) {
+        if (instance == null)
+        {
             instance = this;
         }
-        else if(instance != this){
+        else if (instance != this)
+        {
             Destroy(gameObject);
         }
 
         theAS = GetComponent<AudioSource>();
     }
 
-    public void Play(string _audio) {
-        var audioClip = Resources.Load<AudioClip>(_audio);
-        // PlayOneShot **NOT** Play
-        theAS.PlayOneShot(audioClip);
+    public void PlayTouch()
+    {
+        theAS.PlayOneShot(playerTouch);
     }
+
+
+    public void PlayBomb()
+    {
+        theAS.PlayOneShot(bomb);
+    }
+
+    public void PlayMonsterDeath()
+    {
+        theAS.PlayOneShot(monsterDeath);
+    }
+
+    public void PlayGameOver()
+    {
+        theAS.PlayOneShot(gameOver);
+    }
+    
 }
