@@ -4909,7 +4909,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 1 '
+  m_Text: Level  4
 --- !u!222 &1482405046
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6708,7 +6708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1933939849
 Animator:
   serializedVersion: 3
@@ -7319,7 +7319,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09389fc2620b8428b90df752e16ea28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theAS: {fileID: 0}
+  bomb: {fileID: 0}
+  playerTouch: {fileID: 0}
+  monsterDeath: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!82 &2107696578
 AudioSource:
   m_ObjectHideFlags: 0

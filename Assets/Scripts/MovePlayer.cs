@@ -42,6 +42,8 @@ public class MovePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        print("Player Start func");
+
         isGreen = false;
         thisScene = SceneManager.GetActiveScene();
 
@@ -317,9 +319,31 @@ public class MovePlayer : MonoBehaviour
         UIController.Instance.HideLevelScene();
     }
 
+    // private int FixUpLevelNum(int level)
+    // {
+    //     int level_res = 0;
+    //     // accomplish random level cases
+    //     if (level == 7 || level == 8) 
+    //     {
+    //         level_res = 1;
+    //     }
+    //     else if (level == 9 || level == 10)
+    //     {
+    //         level_res = 2;
+    //     }
+    //     else 
+    //     {
+    //         return level;
+    //     }
+
+    //     return level_res;
+    // }
+
     void OnLevelWasLoaded(int level)
     {
-        print("OnLevelWasLoaded");
+        // int level_res = FixUpLevelNum(level);
+
+        print("OnLevelWasLoaded " + level);
 
         thisScene = SceneManager.GetActiveScene();
 
@@ -373,9 +397,29 @@ public class MovePlayer : MonoBehaviour
             gameObject.transform.position = new Vector3(-2, 16, 0);
         }
 
-        if (level == 3)
+        else if (level == 3)
         {
             gameObject.transform.position = new Vector3(-4, 15, 0);
+        }
+
+        else if (level == 7)
+        {
+            gameObject.transform.position = new Vector3(-5, 19, 0);
+        }
+
+        else if (level == 8) 
+        {
+            gameObject.transform.position = new Vector3(-2, 15, 0);
+        }
+
+        else if (level == 9) 
+        {
+            gameObject.transform.position = new Vector3(-2, 18, 0);
+        }
+
+        else if (level == 10) 
+        {
+            gameObject.transform.position = new Vector3(-2, 17, 0);
         }
 
         if (!hasKey)

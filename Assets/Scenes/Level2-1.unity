@@ -1003,7 +1003,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level5_1
+  m_Text: 'Level  2
+
+'
 --- !u!222 &98888371
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6003,12 +6005,12 @@ PrefabInstance:
     - target: {fileID: 1996773592669690189, guid: d8fa79144842b4e4a94c83c1187e31b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.1
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 1996773592669690189, guid: d8fa79144842b4e4a94c83c1187e31b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.2
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 1996773592669690189, guid: d8fa79144842b4e4a94c83c1187e31b6,
         type: 3}

@@ -64,7 +64,7 @@ public class Store : MonoBehaviour
         final_3.text = total_count[(string)selected_goods[2]["name"]].ToString();
 
         //debug info
-        PrintDebugInfo();
+        // PrintDebugInfo();
     }
 
     public void LoadGoods()
@@ -107,6 +107,35 @@ public class Store : MonoBehaviour
         Debug.Log("yellow: " + total_count["yellow"]);
     }
 
+    private void LoadRightLevel()
+    {   
+        System.Random rnd = new System.Random();
+
+        int level_res = 0;
+        int level_fake = GameData.Instance.GetLevel();
+
+        if (level_fake == 1) 
+        {
+            // choose one from 7, 8 as level 2
+            level_res = rnd.Next(7, 9);
+        }
+        else if (level_fake == 2) 
+        {
+            // choose one from 9, 10 as level 4
+            level_res = rnd.Next(9, 11);
+        }
+        else if (level_fake == 7 || level_fake == 8) 
+        {
+            level_res = 2;
+        }
+        else if (level_fake == 9 || level_fake == 10) 
+        {
+            level_res = 3;
+        }
+
+        SceneManager.LoadScene(level_res);
+    }
+
     private void Awake()
     {
         // btn name in UI is "next level"
@@ -125,10 +154,9 @@ public class Store : MonoBehaviour
             customParams.Add("yellow", total_count["yellow"]);
             AnalyticsEvent.LevelQuit(SceneManager.GetActiveScene().name, SceneManager.GetActiveScene().buildIndex, customParams);
 
-            PrintDebugInfo();
+            // PrintDebugInfo();
             // load next round scene
-            SceneManager.LoadScene(GameData.Instance.GetLevel()+1);
-
+            LoadRightLevel();
         });
 
         btn_goods_1_more.onClick.AddListener(() => {
