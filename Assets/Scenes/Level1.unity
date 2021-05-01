@@ -3458,6 +3458,12 @@ MonoBehaviour:
   playerTouch: {fileID: 8300000, guid: 2b9930f14cebb45e085438981e33b1c3, type: 3}
   monsterDeath: {fileID: 8300000, guid: d3803fff544ba3f43b684262eb9d9bfa, type: 3}
   gameOver: {fileID: 8300000, guid: 469ecb91575a0b84f95d72ff00a233fe, type: 3}
+  swordEffect: {fileID: 8300000, guid: 9aa642861cdcfd343a79aee682e84e9c, type: 3}
+  bowEffect: {fileID: 8300000, guid: 6af0819e846bade4297fc3d09902c68c, type: 3}
+  coinEffect: {fileID: 8300000, guid: 1a47b51bbeaf04c44a69e518a41144e4, type: 3}
+  openBox: {fileID: 8300000, guid: ac2a82015ef8a914dbf86fc9caecf5a8, type: 3}
+  gainPotion: {fileID: 8300000, guid: b3d48f5810a5496449c47308833e62c2, type: 3}
+  storeSound: {fileID: 8300000, guid: 33a164a355b4cd04eb9b532145e170c9, type: 3}
 --- !u!82 &1423035078
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5663,12 +5669,12 @@ PrefabInstance:
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.5
+      value: -14.71
       objectReference: {fileID: 0}
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.7
+      value: 8.98
       objectReference: {fileID: 0}
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}

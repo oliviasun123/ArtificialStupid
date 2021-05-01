@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource theAS;
 
-    public AudioClip bomb, playerTouch, monsterDeath, gameOver;
+    public AudioClip bomb, playerTouch, monsterDeath, gameOver, swordEffect, bowEffect, coinEffect, openBox, gainPotion, storeSound;
 
     private void Awake()
     {
@@ -45,4 +45,34 @@ public class AudioManager : MonoBehaviour
         theAS.PlayOneShot(gameOver);
     }
     
+    public void PlaySwordGet()
+    {
+        theAS.PlayOneShot(swordEffect);
+    }
+
+    public void PlayBowGet()
+    {
+        theAS.PlayOneShot(bowEffect);
+    }
+
+    public void PlayCoinGet()
+    {
+        theAS.PlayOneShot(coinEffect);
+    }
+
+    public void PlayOpenBox()
+    {
+        theAS.PlayOneShot(openBox);
+    }
+
+    public void PlayPotionGet()
+    {
+        theAS.PlayOneShot(gainPotion);
+    }
+
+    public void PlayStoreSound()
+    {
+        theAS.PlayOneShot(storeSound);
+    }
+
 }

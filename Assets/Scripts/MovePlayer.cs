@@ -192,42 +192,49 @@ public class MovePlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("HealthPotion"))
-        {
+        {   
+            AudioManager.instance.PlayPotionGet();
             HP++;
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
         }
 
         if (other.CompareTag("BombPotion"))
         {
+            AudioManager.instance.PlayPotionGet();
             BombCount++;
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
         }
 
         if (other.CompareTag("Key"))
         {
+            AudioManager.instance.PlayCoinGet();
             UIController.Instance.DisplayKey();
             hasKey = true;
         }
 
         if (hasKey && other.CompareTag("Box"))
         {
+            AudioManager.instance.PlayOpenBox();
             hasKey = false;
         }
 
         if (other.CompareTag("Gem"))
         {
             GemCount++;
+            AudioManager.instance.PlayCoinGet();
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
         }
 
         if (other.CompareTag("Bow"))
         {
+            AudioManager.instance.PlayBowGet();
             explodeRange = explodeRange + 2.0f;
         }
 
         if (other.CompareTag("Money"))
-        {
-            MoneyCount += 2;
+        {   
+            AudioManager.instance.PlayCoinGet();
+            MoneyCount += 2;    
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
         }
 
@@ -267,6 +274,7 @@ public class MovePlayer : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             SwordCount++;
+            AudioManager.instance.PlaySwordGet();
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
             gameObject.tag = "Killer";
         }

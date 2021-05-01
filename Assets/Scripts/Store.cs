@@ -267,6 +267,7 @@ public class Store : MonoBehaviour
 
         // checkout btn
         btn_confirm.onClick.AddListener(() => {
+            AudioManager.instance.PlayStoreSound();
             total_count[(string)selected_goods[0]["name"]] += int.Parse(txt_goods_1.text);
             total_count[(string)selected_goods[1]["name"]] += int.Parse(txt_goods_2.text);
             total_count[(string)selected_goods[2]["name"]] += int.Parse(txt_goods_3.text);
