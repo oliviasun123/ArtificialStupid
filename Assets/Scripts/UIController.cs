@@ -78,6 +78,7 @@ public class UIController : MonoBehaviour
     public void ShowGameOver()
     {   
         BackGroundMusicController.Instance.StopBackGround();
+        UIController.Instance.HideKey();
         AudioManager.instance.PlayGameOver();
         img_level.SetActive(false);
         img_gameover.SetActive(true);
