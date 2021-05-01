@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10919233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.804, y: -15.989, z: 22.496094}
-  m_LocalScale: {x: -15.193391, y: -9.311532, z: 1.0176728}
+  m_LocalPosition: {x: -1.96, y: -15.989, z: 22.496094}
+  m_LocalScale: {x: -15.11639, y: -9.311532, z: 1.0176728}
   m_Children: []
   m_Father: {fileID: 1858973484}
   m_RootOrder: 3
@@ -926,7 +926,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 17
+  orthographic size: 21
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1612,6 +1612,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cbbb0533a56141cf9ffe57d1154b67a, type: 3}
+--- !u!1 &650392950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 650392951}
+  - component: {fileID: 650392953}
+  - component: {fileID: 650392952}
+  m_Layer: 5
+  m_Name: popupMSG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &650392951
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650392950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1934686465}
+  - {fileID: 1514063395}
+  m_Father: {fileID: 1696403936}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.84833336}
+  m_AnchorMax: {x: 1, y: 0.84833336}
+  m_AnchoredPosition: {x: 0, y: 7.0200043}
+  m_SizeDelta: {x: 0, y: 107.96037}
+  m_Pivot: {x: 0.5, y: 0.49999988}
+--- !u!114 &650392952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650392950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &650392953
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650392950}
+  m_CullTransparentMesh: 0
 --- !u!1 &658746819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,8 +3060,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250163905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.833, y: 3.161, z: 22.496094}
-  m_LocalScale: {x: 15.201281, y: 8.434596, z: 0.9977738}
+  m_LocalPosition: {x: -1.99, y: 3.161, z: 22.496094}
+  m_LocalScale: {x: 15.124279, y: 8.434596, z: 0.9977738}
   m_Children: []
   m_Father: {fileID: 1858973484}
   m_RootOrder: 0
@@ -3093,7 +3173,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1696403936}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3138,7 +3218,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3438,7 +3518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1514063395
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3446,16 +3526,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514063394}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1696403936}
-  m_RootOrder: 6
+  m_Father: {fileID: 650392951}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.74582815, y: 1}
-  m_AnchorMax: {x: 0.74582815, y: 1}
-  m_AnchoredPosition: {x: 0.91729736, y: -30.002335}
+  m_AnchorMin: {x: 0.5505619, y: 0.5}
+  m_AnchorMax: {x: 0.5505619, y: 0.5}
+  m_AnchoredPosition: {x: 218.57, y: 53.99981}
   m_SizeDelta: {x: 277.40247, y: 107.96051}
   m_Pivot: {x: 0.46133533, y: 0.99999994}
 --- !u!114 &1514063396
@@ -3490,7 +3570,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "         \t     \u2191\n\tNext bomb's color"
+  m_Text: "\n\tNext bomb's color"
 --- !u!222 &1514063397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3854,9 +3934,8 @@ RectTransform:
   - {fileID: 1281219871}
   - {fileID: 1974584975}
   - {fileID: 2002881548}
-  - {fileID: 1514063395}
   - {fileID: 1265730331}
-  - {fileID: 1934686465}
+  - {fileID: 650392951}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3923,11 +4002,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -4464,17 +4543,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934686464}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1696403936}
-  m_RootOrder: 8
+  m_Father: {fileID: 650392951}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.22157039, y: 1}
-  m_AnchorMax: {x: 0.22157039, y: 1}
-  m_AnchoredPosition: {x: 40.4, y: -66.2}
-  m_SizeDelta: {x: 293.91052, y: 72.39621}
+  m_AnchorMin: {x: 0.5505619, y: 0.5}
+  m_AnchorMax: {x: 0.5505619, y: 0.5}
+  m_AnchoredPosition: {x: -273, y: 17.782}
+  m_SizeDelta: {x: 395.01978, y: 72.39621}
   m_Pivot: {x: 0.5, y: 0.49999988}
 --- !u!114 &1934686466
 MonoBehaviour:
@@ -4497,7 +4576,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -4508,8 +4587,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "         \t      \u2191                               \u2191\nPay attention
-    to your remain bombs and HP"
+  m_Text: '
+
+    Pay attention to your remain bombs and HP'
 --- !u!222 &1934686467
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4778,9 +4858,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 1.4394531, y: 1.6682432}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 520, y: 50}
-  m_Pivot: {x: 0.5447139, y: -0.4606351}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2002881549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4819,7 +4899,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
