@@ -27,6 +27,8 @@ public class MovePlayer : MonoBehaviour
     private bool isGreen;
     private bool hasKey = false;
 
+    private GameObject player;
+
     // private AudioSource touchMusic;
 
 
@@ -62,6 +64,7 @@ public class MovePlayer : MonoBehaviour
         m_transform = GetComponent<Transform>();
         // touchMusic = GetComponent<AudioSource>();
 
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -81,22 +84,70 @@ public class MovePlayer : MonoBehaviour
         float xm = 0, ym = 0;
 
         //按键盘W向上移动
-        if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+        if ((Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow)))
         {
             ym += m_movSpeed_y * Time.deltaTime;
+            if (player.GetComponent<SpriteRenderer>().sprite.name == "up_0")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("up_1") as Sprite;
+            }
+            else if (player.GetComponent<SpriteRenderer>().sprite.name == "up_1")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("up_2") as Sprite;
+            }
+            else
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("up_0") as Sprite;
+            }
         }
-        else if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))//按键盘S向下移动
+        else if ((Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow)))
         {
             ym -= m_movSpeed_y * Time.deltaTime;
+            if (player.GetComponent<SpriteRenderer>().sprite.name == "down_0")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("down_1") as Sprite;
+            }
+            else if (player.GetComponent<SpriteRenderer>().sprite.name == "down_1")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("down_2") as Sprite;
+            }
+            else
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("down_0") as Sprite;
+            }
         }
 
-        if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))//按键盘A向左移动
+        if ((Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)))
         {
             xm -= m_movSpeed_x * Time.deltaTime;
+            if (player.GetComponent<SpriteRenderer>().sprite.name == "left_0")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("left_1") as Sprite;
+            }
+            else if (player.GetComponent<SpriteRenderer>().sprite.name == "left_1")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("left_2") as Sprite;
+            }
+            else
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("left_0") as Sprite;
+            }
         }
-        else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))//按键盘D向右移动
+        else if ((Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow)))
         {
             xm += m_movSpeed_x * Time.deltaTime;
+            if (player.GetComponent<SpriteRenderer>().sprite.name == "right_0")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("right_1") as Sprite;
+            }
+            else if (player.GetComponent<SpriteRenderer>().sprite.name == "right_1")
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("right_2") as Sprite;
+            }
+            else
+            {
+                player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("right_0") as Sprite;
+            }
         }
         m_transform.Translate(new Vector2(xm, ym), Space.Self);
 
