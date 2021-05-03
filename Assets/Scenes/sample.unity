@@ -3221,7 +3221,7 @@ MonoBehaviour:
   player: {fileID: 1890720467}
   text2: {fileID: 1514063394}
   bowtext: {fileID: 1265730330}
-  attention: {fileID: 0}
+  attention: {fileID: 1934686464}
   bow: {fileID: 1916519617}
 --- !u!114 &1265730333
 MonoBehaviour:

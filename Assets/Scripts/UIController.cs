@@ -17,7 +17,6 @@ public class UIController : MonoBehaviour
     public Button btn_tryagain;
     public Button btn_exit, btn_pause, btn_setting, btn_close;
     public Sprite blue_bomb, green_bomb;
-    public GameObject level_scene;
 
     private void Awake()
     {
@@ -28,7 +27,7 @@ public class UIController : MonoBehaviour
 
     public void HideLevelScene()
     {
-        level_scene.SetActive(false);
+        img_level.SetActive(false);
     }
 
     public void ChangeBlue()

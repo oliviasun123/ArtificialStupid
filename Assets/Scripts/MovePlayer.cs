@@ -54,6 +54,7 @@ public class MovePlayer : MonoBehaviour
         {
             GameObject.DontDestroyOnLoad(gameObject);
         }
+
         // InitExit();
 
         int[] basics = UIController.Instance.GetBasicInfo();
@@ -69,7 +70,7 @@ public class MovePlayer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         if (SwordCount > 0)
         {
             gameObject.tag = "Killer";
@@ -248,7 +249,7 @@ public class MovePlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("HealthPotion"))
-        {   
+        {
             AudioManager.instance.PlayPotionGet();
             HP++;
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
@@ -288,9 +289,9 @@ public class MovePlayer : MonoBehaviour
         }
 
         if (other.CompareTag("Money"))
-        {   
+        {
             AudioManager.instance.PlayCoinGet();
-            MoneyCount += 2;    
+            MoneyCount += 2;
             UIController.Instance.RefreshInfo(HP, BombCount, SwordCount, MoneyCount, GemCount);
         }
 
@@ -382,6 +383,11 @@ public class MovePlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         UIController.Instance.HideLevelScene();
+        if (thisScene.name == "Level1")
+        {
+            Time.timeScale = 0;
+        }
+        // TutorialButtonController.Instance.InitButton();
     }
 
     // private int FixUpLevelNum(int level)
@@ -463,9 +469,9 @@ public class MovePlayer : MonoBehaviour
         }
 
         else if (level == 3)
-        {   
+        {
             System.Random rand = new System.Random();
-            List<Vector3> FINAL_LOCATION = new List<Vector3>(){new Vector3(-15, 9, 0), new Vector3(-11, -2, 0), new Vector3(23, -3, 0), new Vector3(50, 14, 0), new Vector3(33, 8, 0)};
+            List<Vector3> FINAL_LOCATION = new List<Vector3>() { new Vector3(-15, 9, 0), new Vector3(-11, -2, 0), new Vector3(23, -3, 0), new Vector3(50, 14, 0), new Vector3(33, 8, 0) };
             int randIdx = rand.Next(0, 5);
             gameObject.transform.position = FINAL_LOCATION[randIdx];
         }
@@ -475,17 +481,17 @@ public class MovePlayer : MonoBehaviour
             gameObject.transform.position = new Vector3(-5, 19, 0);
         }
 
-        else if (level == 8) 
+        else if (level == 8)
         {
             gameObject.transform.position = new Vector3(-2, 15, 0);
         }
 
-        else if (level == 9) 
+        else if (level == 9)
         {
             gameObject.transform.position = new Vector3(-2, 18, 0);
         }
 
-        else if (level == 10) 
+        else if (level == 10)
         {
             gameObject.transform.position = new Vector3(-2, 17, 0);
         }
@@ -528,13 +534,13 @@ public class MovePlayer : MonoBehaviour
     IEnumerator GraceTime(float graceTime)
     {
         yield return new WaitForSeconds(graceTime / 4);
-        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0.5f);
+        player.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
         yield return new WaitForSeconds(graceTime / 4);
-        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
-        yield return new WaitForSeconds(graceTime / 4); 
-        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0.5f);
+        player.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(graceTime / 4);
-        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+        player.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        yield return new WaitForSeconds(graceTime / 4);
+        player.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
         SafeFlag = false;
     }
