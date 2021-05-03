@@ -22,7 +22,7 @@ public class MovePlayer : MonoBehaviour
     private int MoneyCount = 0;
     private int GemCount = 0;
     private float explodeRange = 2.0f;
-    private float SafeTime = 2.0f;
+    private float SafeTime = 1.0f;
     private bool SafeFlag = false;
     private bool isGreen;
     private bool hasKey = false;
@@ -527,7 +527,15 @@ public class MovePlayer : MonoBehaviour
 
     IEnumerator GraceTime(float graceTime)
     {
-        yield return new WaitForSeconds(graceTime);
+        yield return new WaitForSeconds(graceTime / 4);
+        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0.5f);
+        yield return new WaitForSeconds(graceTime / 4);
+        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+        yield return new WaitForSeconds(graceTime / 4); 
+        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0.5f);
+        yield return new WaitForSeconds(graceTime / 4);
+        player.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+
         SafeFlag = false;
     }
 

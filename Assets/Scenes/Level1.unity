@@ -4748,6 +4748,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1929555285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8633247950274332896, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1459573571307574068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1929555286
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929555285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd46386c469ae2847b19fe42d0db01e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1941386801
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,7 +4956,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1993441332
 GameObject:
@@ -5565,7 +5590,7 @@ PrefabInstance:
     - target: {fileID: 1996773592669690189, guid: d8fa79144842b4e4a94c83c1187e31b6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1996773592669690189, guid: d8fa79144842b4e4a94c83c1187e31b6,
         type: 3}
@@ -5690,12 +5715,12 @@ PrefabInstance:
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7860371472538067348, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
@@ -5746,6 +5771,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554758625720811551, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554758625720811551, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 8554758625720811551, guid: 0cbbb0533a56141cf9ffe57d1154b67a,
         type: 3}
